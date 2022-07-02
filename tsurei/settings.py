@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tsurei.wsgi.application'
 
+AUTH_USER_MODEL = 'manga.User'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
