@@ -1,6 +1,10 @@
 {% extends 'manga/layout.html' %}
 {% load static %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+{% endblock %}
+
 {% block main %}
 <div class="main-container">
     <div class="frontpage">

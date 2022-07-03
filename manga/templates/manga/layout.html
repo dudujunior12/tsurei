@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link  rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
         <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        {% block head %} {% endblock%}
     </head>
     <body>
         <div class="container">
@@ -20,11 +21,11 @@
                         <img class="search-img" src="{% static 'images/search.png' %}" alt="search-image">
                     </div>
                     <div class="right-side-btns">
-                        <div class="btn-container register">
-                            <a class="btn-login" href="#">LOGIN</a>
+                        <div class="btn-container">
+                            <a class="btn-login" href="{% url 'login' %}">LOGIN</a>
                         </div>
-                        <div class="btn-container register">
-                            <a class="btn-register" href="#">REGISTER</a>
+                        <div class="btn-container">
+                            <a class="btn-register" href="{% url 'register' %}">REGISTER</a>
                         </div>
                     </div>
 
