@@ -23,17 +23,26 @@
                     <div class="right-side-btns">
                         {% if not request.user.is_authenticated %}
                             <div class="btn-container">
-                                <a class="btn-login" href="{% url 'login' %}">LOGIN</a>
+                                <button>
+                                    <a class="btn-login" href="{% url 'login' %}">LOGIN</a>
+                                </button>
                             </div>
                             <div class="btn-container">
-                                <a class="btn-register" href="{% url 'register' %}">REGISTER</a>
+                                <button>
+                                    <a class="btn-register" href="{% url 'register' %}">REGISTER</a>
+                                </button>
                             </div>
-                        {%else%}
-                            <div class="btn-container">
+                        {% else %}
+                            <div class="profile">
                                 <p>{{request.user.username}}</p>
                             </div>
+                            <div class="upload">
+                                <a href="#">Upload</a>
+                            </div>
                             <div class="btn-container">
-                                <a class="btn-register" href="{% url 'logout' %}">LOGOUT</a>
+                                <button>
+                                    <a class="btn-register" href="{% url 'logout' %}">LOGOUT</a>
+                                </button>
                             </div>
                         {% endif %}
                     </div>
