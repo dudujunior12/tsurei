@@ -1,4 +1,281 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/* NAV 1 */
+
+.nav-1{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    background-color: black;
+}
+
+.logo-container{
+    margin-left: 5%;
+}
+
+.logo{
+    width: 250px;
+    height: auto;
+    display: block;
+}
+
+.search-container{
+    width: 55%;
+    margin-left: 5%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+}
+
+.search-input{
+    padding: 0px 10px;
+    width: 96%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.search-img{
+    width: auto;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.right-side-btns{
+    margin-left: 5%;
+    width: auto;
+    height: 45px;
+    display: flex;
+    margin-right: 5%;
+}
+
+.btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    background-color: #3A3A3A;
+    height: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.register{
+    margin-left: 10px;
+}
+
+.right-side-btns a{
+    text-decoration: none;
+    color: white;
+}
+
+
+/* NAV 2 */
+
+.nav-2{
+    width: 100%;
+    background-color: #913FE2;
+    height: 6vh;
+}
+
+
+.nav-2-btns{
+    padding-left: 6%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-2-btns ul li{
+    list-style: none;
+    display: inline-block;
+    margin-right: 55px;
+}
+
+.nav-2-btns ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Main */
+
+.main{
+    width: 100%;
+}
+
+.main-container{
+    margin-top: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Frontpage */
+
+.frontpage{
+    width: 75%;
+    height: 50vh;
+    background-color: #1E1F21;
+    border-radius: 5px;
+    color: white;
+}
+
+
+.frontpage-slide-container{
+    height: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.manga-info-container{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    background-color: #913FE2;
+    border-radius: 3px;
+    margin-left: 10%;
+}
+
+.manga-info{
+    padding-top: 8%;
+    height: 100%;
+    width: 100%;
+}
+
+.manga-info h2{
+    padding-bottom: 5%;
+}
+
+.manga-info p{
+    padding: 12px 0px;
+}
+
+.summary p{
+    padding: 5px 0;
+}
+
+.manga-text{
+    padding-left: 7%;
+    padding-bottom: 8%;
+}
+
+.manga-img{
+    margin-right: 10%;
+    width: 20%;
+    height: 80%;
+}
+
+.manga-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* Downpage */
+
+.downpage{
+    width: 75%;
+    margin-top: 10px;
+    height: auto;
+    background-color: #1E1F21;
+    border-radius: 5px;
+}
+
+.downpage-container{
+    height: 100%;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.most-viewed h2{
+    padding-bottom: 1%;
+}
+
+.most-viewed img{
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.most-viewed h3{
+    padding-top: 3%;
+    text-align: center;
+}
+
+.latest{
+    margin-top: 2%;
+}
+
+.latest-container{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.manga-grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 200px 200px;
+    grid-gap: 20px;
+    column-gap: 30%;
+}
+
+.manga-grid-item{
+    display: flex;
+    height: 100%;
+}
+
+.manga-grid-image{
+    height: 100%;
+}
+
+.manga-grid-info{
+    height: 100%;
+    margin-top: 3%;
+    margin-left: 4%;
+}
+
+.manga-grid-info h3{
+    padding-bottom: 5%;
+}
+
+.manga-grid-info p{
+    padding-bottom: 3%;
+}
+
+
+.manga-grid-image img{
+    max-width: 100%;
+    height: 100%;
+    border-radius: 3px;
 }

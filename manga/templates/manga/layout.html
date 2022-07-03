@@ -3,11 +3,53 @@
 <html>
     <head>
         <title>Tsurei</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link  rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     </head>
     <body>
+        <div class="container">
+            <div class="header">
+                <nav class="nav-1">
+                    <div class="logo-container">
+                        <img class="logo" src="{% static 'images/logo.png' %}" alt="logo-image">
+                    </div>
+                    <div class="search-container">
+                        <input class="search-input" type="text" name="q" placeholder="Search for a manga">
+                        <img class="search-img" src="{% static 'images/search.png' %}" alt="search-image">
+                    </div>
+                    <div class="right-side-btns">
+                        <div class="btn-container register">
+                            <a class="btn-login" href="#">LOGIN</a>
+                        </div>
+                        <div class="btn-container register">
+                            <a class="btn-register" href="#">REGISTER</a>
+                        </div>
+                    </div>
+
+                </nav>
+                <nav class="nav-2">
+                    <div class="nav-2-btns">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Bookmarks</a></li>
+                            <li><a href="#">Latest</a></li>
+                            <li><a href="#">Categories</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="main">
+                {% block main %}
+                {% endblock %}
+            </div>
+            <div class="footer">
+
+            </div>
+        </div>
         {% block body %}
-        
+
         {% endblock %}
     </body>
 </html>

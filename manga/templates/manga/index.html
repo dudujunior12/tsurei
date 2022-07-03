@@ -1,5 +1,117 @@
 {% extends 'manga/layout.html' %}
+{% load static %}
 
-{% block body %}
-<p>Teste</p>
+{% block main %}
+<div class="main-container">
+    <div class="frontpage">
+        <div class="frontpage-slide-container">
+            <div class="manga-info-container">
+                <div class="manga-info">
+                    <div class="manga-text">
+                        <h2>Return of the Mount Hua Sect</h2>
+                        <div class="summary">
+                            <p><strong>Summary</strong></p>
+                            <p>BLALBLALBALLBABLALB</p>
+                        </div>
+                        <p><strong>Author:</strong> </p>
+                        <p><strong>Status:</strong> </p>
+                    </div>
+                    <div style="position: static !important;" class="swiper-pagination pag"></div>
+                </div>
+            </div>
+            <div class="manga-img swiper swiper1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="{% static 'images/mangas/image_1.png' %}"></div>
+                    <div class="swiper-slide"><img src="{% static 'images/mangas/image_1.png' %}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="downpage">
+        <div class="downpage-container">
+            <div class="most-viewed">
+                <h2>Most Viewed</h2>
+                <div class="most-viewed-swiper swiper swiper2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{% static 'images/mangas/image_1.png' %}">
+                            <h3>Return of the Mount Hua Sect</h3>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="latest">
+                <h2>Latest</h2>
+                <div class="latest-container">
+                    <div class="manga-grid">
+                        <div class="manga-grid-item">
+                            <div class="manga-grid-image">
+                                <img src="{% static 'images/mangas/image_1.png' %}">
+                            </div>
+                            <div class="manga-grid-info">
+                                <h3>Return of the Mount Hua Sect</h3>
+                                <p>Chapter 3</p>
+                                <p>Chapter 2</p>
+                                <p>Chapter 1</p>
+                            </div>
+                        </div>
+                        <div class="manga-grid-item">
+                            <div class="manga-grid-image">
+                                <img src="{% static 'images/mangas/image_1.png' %}">
+                            </div>
+                            <div class="manga-grid-info">
+                                <h3>Return of the Mount Hua Sect</h3>
+                                <p>Chapter 3</p>
+                                <p>Chapter 2</p>
+                                <p>Chapter 1</p>
+                            </div>
+                        </div>
+                        <div class="manga-grid-item">
+                            <div class="manga-grid-image">
+                                <img src="{% static 'images/mangas/image_1.png' %}">
+                            </div>
+                            <div class="manga-grid-info">
+                                <h3>Return of the Mount Hua Sect</h3>
+                                <p>Chapter 3</p>
+                                <p>Chapter 2</p>
+                                <p>Chapter 1</p>
+                            </div>
+                        </div>
+                        <div class="manga-grid-item">
+                            <div class="manga-grid-image">
+                                <img src="{% static 'images/mangas/image_1.png' %}">
+                            </div>
+                            <div class="manga-grid-info">
+                                <h3>Return of the Mount Hua Sect</h3>
+                                <p>Chapter 3</p>
+                                <p>Chapter 2</p>
+                                <p>Chapter 1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var swiper = new Swiper(".swiper1", {
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+
+        var swiper = new Swiper(".swiper2", {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+            spaceBetween: 50,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</div>
 {% endblock %}
