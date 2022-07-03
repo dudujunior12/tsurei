@@ -14,19 +14,28 @@
             <div class="header">
                 <nav class="nav-1">
                     <div class="logo-container">
-                        <img class="logo" src="{% static 'images/logo.png' %}" alt="logo-image">
+                        <a href="{% url 'index' %}"><img class="logo" src="{% static 'images/logo.png' %}" alt="logo-image"></a>
                     </div>
                     <div class="search-container">
                         <input class="search-input" type="text" name="q" placeholder="Search for a manga">
                         <img class="search-img" src="{% static 'images/search.png' %}" alt="search-image">
                     </div>
                     <div class="right-side-btns">
-                        <div class="btn-container">
-                            <a class="btn-login" href="{% url 'login' %}">LOGIN</a>
-                        </div>
-                        <div class="btn-container">
-                            <a class="btn-register" href="{% url 'register' %}">REGISTER</a>
-                        </div>
+                        {% if not request.user.is_authenticated %}
+                            <div class="btn-container">
+                                <a class="btn-login" href="{% url 'login' %}">LOGIN</a>
+                            </div>
+                            <div class="btn-container">
+                                <a class="btn-register" href="{% url 'register' %}">REGISTER</a>
+                            </div>
+                        {%else%}
+                            <div class="btn-container">
+                                <p>{{request.user.username}}</p>
+                            </div>
+                            <div class="btn-container">
+                                <a class="btn-register" href="{% url 'logout' %}">LOGOUT</a>
+                            </div>
+                        {% endif %}
                     </div>
 
                 </nav>
