@@ -67,9 +67,12 @@
 }
 
 .manga-img img{
+    max-width: 100%;
+    max-height: 100%;
     width: 100%;
     height: 100%;
     border-radius: 3px;
+    display: block;
 }
 
 /* Downpage */
@@ -81,6 +84,7 @@
     background-color: #1E1F21;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 2%;
 }
 
 .downpage-container{
@@ -91,16 +95,34 @@
     display: flex;
     flex-direction: column;
     color: white;
+    margin-bottom: 1%;
 }
 
 .most-viewed h2{
     padding-bottom: 1%;
 }
 
+.most-viewed-mangas{
+    height: 35vh;
+}
+
+.most-viewed-manga{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.most-viewed-img{
+    height: 80%;
+}
+
 .most-viewed img{
+    max-width: 100%;
+    max-height: 100%;
     width: 100%;
     height: 100%;
     border-radius: 3px;
+    display: block;
 }
 
 .most-viewed h3{
@@ -119,10 +141,9 @@
 
 .manga-grid{
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 200px 200px;
+    grid-template-columns: 400px 400px;
     grid-gap: 20px;
-    column-gap: 30%;
+    column-gap: 35%;
 }
 
 .manga-grid-item{
@@ -131,13 +152,17 @@
 }
 
 .manga-grid-image{
+    max-width: 100%;
+    max-height: 100%;
     height: 100%;
+    width: 50%;
 }
 
 .manga-grid-info{
     height: 100%;
     margin-top: 3%;
     margin-left: 4%;
+    width: 50%;
 }
 
 .manga-grid-info h3{
@@ -151,6 +176,9 @@
 
 .manga-grid-image img{
     max-width: 100%;
+    max-height: 100%;
     height: 100%;
+    width: 100%;
     border-radius: 3px;
+    display: block;
 }

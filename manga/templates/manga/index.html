@@ -25,8 +25,11 @@
             </div>
             <div class="manga-img swiper swiper1">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="{% static 'images/mangas/image_1.png' %}"></div>
-                    <div class="swiper-slide"><img src="{% static 'images/mangas/image_1.png' %}"></div>
+                    {% for popular_manga in popular_mangas %}
+                        <div class="swiper-slide">
+                            <img id="popular-manga-img" data-set="{{ popular_manga.id }}" src="{{ popular_manga.manga_cover.url }}">
+                        </div>
+                    {% endfor%}
                 </div>
             </div>
         </div>
@@ -36,63 +39,35 @@
             <div class="most-viewed">
                 <h2>Most Viewed</h2>
                 <div class="most-viewed-swiper swiper swiper2">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="{% static 'images/mangas/image_1.png' %}">
-                            <h3>Return of the Mount Hua Sect</h3>
-                        </div>
+                    <div class="swiper-wrapper most-viewed-mangas">
+                        {% for most_viewed_manga in most_viewed_mangas %}
+                            <div class="swiper-slide most-viewed-manga">
+                                <div class="most-viewed-img">
+                                    <img src="{{ most_viewed_manga.manga_cover.url }}">
+                                </div>
+                                <h3>{{ most_viewed_manga.manga_title }}</h3>
+                            </div>
+                        {% endfor%}
                     </div>
-                    
                 </div>
             </div>
             <div class="latest">
                 <h2>Latest</h2>
                 <div class="latest-container">
                     <div class="manga-grid">
+                        {% for latest_manga in latest_mangas %}
                         <div class="manga-grid-item">
                             <div class="manga-grid-image">
-                                <img src="{% static 'images/mangas/image_1.png' %}">
+                                <img src="{{ latest_manga.manga_cover.url }}">
                             </div>
                             <div class="manga-grid-info">
-                                <h3>Return of the Mount Hua Sect</h3>
+                                <h3>{{ latest_manga.manga_title }}</h3>
                                 <p>Chapter 3</p>
                                 <p>Chapter 2</p>
                                 <p>Chapter 1</p>
                             </div>
                         </div>
-                        <div class="manga-grid-item">
-                            <div class="manga-grid-image">
-                                <img src="{% static 'images/mangas/image_1.png' %}">
-                            </div>
-                            <div class="manga-grid-info">
-                                <h3>Return of the Mount Hua Sect</h3>
-                                <p>Chapter 3</p>
-                                <p>Chapter 2</p>
-                                <p>Chapter 1</p>
-                            </div>
-                        </div>
-                        <div class="manga-grid-item">
-                            <div class="manga-grid-image">
-                                <img src="{% static 'images/mangas/image_1.png' %}">
-                            </div>
-                            <div class="manga-grid-info">
-                                <h3>Return of the Mount Hua Sect</h3>
-                                <p>Chapter 3</p>
-                                <p>Chapter 2</p>
-                                <p>Chapter 1</p>
-                            </div>
-                        </div>
-                        <div class="manga-grid-item">
-                            <div class="manga-grid-image">
-                                <img src="{% static 'images/mangas/image_1.png' %}">
-                            </div>
-                            <div class="manga-grid-info">
-                                <h3>Return of the Mount Hua Sect</h3>
-                                <p>Chapter 3</p>
-                                <p>Chapter 2</p>
-                                <p>Chapter 1</p>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
