@@ -45,7 +45,7 @@
                                 <div class="most-viewed-img">
                                     <img src="{{ most_viewed_manga.manga_cover.url }}">
                                 </div>
-                                <h3>{{ most_viewed_manga.manga_title }}</h3>
+                                <h3><a href="{% url 'show_manga' most_viewed_manga.id %}">{{ most_viewed_manga.manga_title }}</a></h3>
                             </div>
                         {% endfor%}
                     </div>
@@ -61,7 +61,7 @@
                                 <img src="{{ latest_manga.manga_cover.url }}">
                             </div>
                             <div class="manga-grid-info">
-                                <h3>{{ latest_manga.manga_title }}</h3>
+                                <h3><a href="{% url 'show_manga' latest_manga.id %}">{{ latest_manga.manga_title }}</a></h3>
                                 <p>Chapter 3</p>
                                 <p>Chapter 2</p>
                                 <p>Chapter 1</p>
