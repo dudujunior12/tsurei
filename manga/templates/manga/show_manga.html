@@ -3,6 +3,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/show_manga.css' %}">
+<script src="{% static 'js/show_manga.js' %}"></script>
 {% endblock %}
 
 {% block main %}
@@ -18,7 +19,7 @@
                 </div>
             </div>
             <div class="manga-right-container">
-                <div class="manga-info">
+                <div class="manga-info" data-id="{{ manga.id }}">
                     <h2>{{ manga.manga_title }}</h2>
                     <p><strong>Summary</strong></p>
                     <p>{{ manga.summary }}</p>
@@ -49,7 +50,7 @@
         <div class="comments">
             <div class="add-comment">
                 <h2>Place a comment</h2>
-                <form method="POST">
+                <form class="new-comment-form" method="POST" action="{% url 'new_comment' manga.id %}">
                     {% csrf_token %}
                     {% for field in comment_form %}
                         {{ field }}
@@ -60,7 +61,9 @@
             <div class="all-comments">
                 <h2>All Comments</h2>
                 {% for comment in comments %}
-                <div class="comment">
+                <!-- Comment -->
+                <div class="comment" data-id="{{ comment.id }}">
+                    <!-- Comment Info-->
                     <div class="comment-info">
                         <p><strong>{{ comment.user.username }}</strong></p>
                         <p>{{ comment.posted_date }}</p>
@@ -68,15 +71,20 @@
                             <button id="btn-edit" class="btn btn-primary" data-id="{{comment.id}}">Edit</button>
                         {% endif%}
                     </div>
+
+                    <!-- Edit Form -->
                     {% if comment.user.username == request.user.username %}
-                    <form id="form_{{comment.id}}" class="form-edit" data-id="{{comment.id}}" method="POST" style="display: none;">
-                        <div class="form-group">
-                            <textarea id="txtarea_{{comment.id}}" class="form-control"></textarea>
+                    <form id="form_edit_{{comment.id}}" class="form-edit" data-id="{{comment.id}}" method="POST" style="display: none;">
+                        <div class="form-edit-content">
+                            <textarea id="txtarea_edit_{{comment.id}}"></textarea>
                         </div>
-                        <button id="btn-form-save" class="btn btn-success" type="submit">Save</button>
+                        <button id="btn-form-save" type="submit">Save</button>
                     </form>
                     {% endif %}
-                    <p id="comment_{{comment.id}}">{{ comment.comment }}</p>
+                    <!-- Comment Text -->
+                    <p id="comment_{{comment.id}}">{{ comment.comment_text }}</p>
+
+                    <!-- Like -->
                     <div class="like">
                         <svg class="btn-like" {% if comment.id in liked_id %} style="fill: red;" {% else %} style="fill: grey;" {% endif %} data-id="{{ comment.id }}" viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"><g><path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12z"></path></g></svg>
                         <p id="like-count">{{comment.like_count}}</p>

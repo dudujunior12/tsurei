@@ -196,11 +196,35 @@
     padding-right: 2%;
 }
 
+
+
+.form-edit-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-edit-content textarea{
+    padding: 2%;
+    font-size: 14px;
+    color: black;
+    margin-bottom: 2%;
+}
+
+#btn-form-save{
+    border: none;
+    background-color: green;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
 #btn-edit{
     border: none;
     background-color: grey;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 svg{

@@ -38,7 +38,7 @@ class Bookmark(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     manga = models.ForeignKey(Manga, on_delete=models.CASCADE)
-    comment = models.TextField()
+    comment_text = models.TextField()
     posted_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

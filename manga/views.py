@@ -5,6 +5,8 @@ from .forms import CreateUserForm, UploadMangaForm, CreateComment
 from django.contrib.auth.forms import AuthenticationForm
 from .models import User, Manga, Chapter, Comment
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 # Create your views here.
 def index(request):
@@ -20,7 +22,22 @@ def index(request):
         "latest_mangas": latest_mangas,
         })
 
+@login_required
+@csrf_exempt
+def edit_comment(request, manga_id, comment_id):
+    if request.method == "POST":
+        user = request.user
+        comment = get_object_or_404(Comment, id=comment_id, user=user)
+        data = json.loads(request.body)
+        if data.get("comment_text") is not None:
+            comment.comment_text = data["comment_text"]
+        comment.save()
 
+        return JsonResponse({"message": "Comment edited successfully.", "comment_text": comment.comment_text}, status=201)
+    else:
+        return JsonResponse({"message_error": "Require POST request method."}, status=404)
+
+@login_required
 def new_comment(request, id):
     if request.method == "POST":
         form = CreateComment(request.POST)
@@ -29,7 +46,7 @@ def new_comment(request, id):
             form.user = request.user
             form.manga = get_object_or_404(Manga, id=id)
             form.save()
-        return redirect("manga", id=id)
+        return redirect("show_manga", id=id)
     else:
         return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
@@ -49,7 +66,7 @@ def show_manga(request, id):
 
     manga = get_object_or_404(Manga, id=id)
     manga_chapters = Chapter.objects.filter(manga=manga)
-    comments = Comment.objects.filter(manga=manga)
+    comments = Comment.objects.filter(manga=manga).order_by("-posted_date")
 
     return render(request, "manga/show_manga.html", {"manga": manga, "manga_chapters": manga_chapters, "comment_form": comment_form, "comments": comments})
 

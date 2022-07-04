@@ -16,4 +16,4 @@ class UploadMangaForm(ModelForm):
 class CreateComment(ModelForm):
     class Meta:
         model = Comment
-        fields = ['comment']
+        fields = ['comment_text']
