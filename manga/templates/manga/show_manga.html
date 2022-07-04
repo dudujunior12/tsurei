@@ -47,14 +47,43 @@
 
     <div class="comment-container">
         <div class="comments">
-            <h2>Comments</h2>
-            <div class="comment">
-                <p><strong>dudujunior12</strong></p>
-                <p>Comentario</p>
+            <div class="add-comment">
+                <h2>Place a comment</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in comment_form %}
+                        {{ field }}
+                    {% endfor %}
+                    <button class="submit">Comment</button>
+                </form>
             </div>
-            <div class="comment">
-                <p><strong>dudujunior12</strong></p>
-                <p>Comentario</p>
+            <div class="all-comments">
+                <h2>All Comments</h2>
+                {% for comment in comments %}
+                <div class="comment">
+                    <div class="comment-info">
+                        <p><strong>{{ comment.user.username }}</strong></p>
+                        <p>{{ comment.posted_date }}</p>
+                        {% if comment.user.username == request.user.username %}
+                            <button id="btn-edit" class="btn btn-primary" data-id="{{comment.id}}">Edit</button>
+                        {% endif%}
+                    </div>
+                    {% if comment.user.username == request.user.username %}
+                    <form id="form_{{comment.id}}" class="form-edit" data-id="{{comment.id}}" method="POST" style="display: none;">
+                        <div class="form-group">
+                            <textarea id="txtarea_{{comment.id}}" class="form-control"></textarea>
+                        </div>
+                        <button id="btn-form-save" class="btn btn-success" type="submit">Save</button>
+                    </form>
+                    {% endif %}
+                    <p id="comment_{{comment.id}}">{{ comment.comment }}</p>
+                    <div class="like">
+                        <svg class="btn-like" {% if comment.id in liked_id %} style="fill: red;" {% else %} style="fill: grey;" {% endif %} data-id="{{ comment.id }}" viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"><g><path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12z"></path></g></svg>
+                        <p id="like-count">{{comment.like_count}}</p>
+                    </div>
+
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

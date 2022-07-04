@@ -8,5 +8,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name="logout"),
     path('upload/', views.upload, name="upload"),
     path('manga/get/<int:id>', views.get_manga, name="get_manga"),
-    path('manga/<int:id>', views.show_manga, name="show_manga")
+    path('manga/<int:id>', views.show_manga, name="show_manga"),
+    path('manga/<int:id>/new-comment', views.new_comment, name="new_comment"),
 ]

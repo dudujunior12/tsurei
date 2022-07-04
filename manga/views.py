@@ -1,9 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CreateUserForm, UploadMangaForm
+from .forms import CreateUserForm, UploadMangaForm, CreateComment
 from django.contrib.auth.forms import AuthenticationForm
-from .models import User, Manga, Chapter
+from .models import User, Manga, Chapter, Comment
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -21,12 +21,37 @@ def index(request):
         })
 
 
-def show_manga(request, id):
-    manga = get_object_or_404(Manga, id=id)
-    
-    manga_chapters = Chapter.objects.filter(manga=manga)
+def new_comment(request, id):
+    if request.method == "POST":
+        form = CreateComment(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.user = request.user
+            form.manga = get_object_or_404(Manga, id=id)
+            form.save()
+        return redirect("manga", id=id)
+    else:
+        return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
-    return render(request, "manga/show_manga.html", {"manga": manga, "manga_chapters": manga_chapters})
+def show_manga(request, id):
+    comment_form = CreateComment()
+
+    
+    # Bookmark 
+
+    # Add Chapter
+
+    # Create Comment
+
+    # Follow
+
+    # Profile
+
+    manga = get_object_or_404(Manga, id=id)
+    manga_chapters = Chapter.objects.filter(manga=manga)
+    comments = Comment.objects.filter(manga=manga)
+
+    return render(request, "manga/show_manga.html", {"manga": manga, "manga_chapters": manga_chapters, "comment_form": comment_form, "comments": comments})
 
 def get_manga(request, id):
     if request.method == "GET":

@@ -151,7 +151,33 @@
 }
 
 .comments h2{
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.add-comment form{
+    display: flex;
+    flex-direction: column; 
+}
+
+.add-comment textarea{
+    color: black;
+    border-radius: 3px;
+    outline: none;
+    padding: 1%;
+    font-size: 16px;
+}
+
+.add-comment button{
+    margin-top: 2%;
     margin-bottom: 2%;
+    width: 20%;
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #913FE2;
 }
 
 .comment{
@@ -159,3 +185,37 @@
     border-top: 1px solid #333;
 }
 
+.comment-info{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 50px;
+}
+
+.comment-info p{
+    padding-right: 2%;
+}
+
+#btn-edit{
+    border: none;
+    background-color: grey;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+svg{
+    width: 1.25em;
+    cursor: pointer;
+    
+}
+
+.btn-like:hover{
+    fill: red;
+}
+
+.like{
+    padding-top: 2%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

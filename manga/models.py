@@ -36,9 +36,10 @@ class Bookmark(models.Model):
         return f"{self.manga.manga_title} bookmarked by {self.user.username}"
 
 class Comment(models.Model):
-    user = models.ManyToManyField(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     manga = models.ForeignKey(Manga, on_delete=models.CASCADE)
     comment = models.TextField()
+    posted_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.user.username} {self.manga.manga_title}"
