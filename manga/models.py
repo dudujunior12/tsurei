@@ -13,6 +13,7 @@ class Manga(models.Model):
     manga_cover = models.ImageField(upload_to='mangas/')
     summary = models.TextField()
     posted_date = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, default="Releasing")
 
     def __str__(self):
         return f"{self.manga_title}"
@@ -22,6 +23,7 @@ class Chapter(models.Model):
     chapter_title = models.CharField(max_length=100, null="true", blank="true")
     chapter_number = models.IntegerField(default=1)
     image = models.ImageField(upload_to='mangas/')
+    posted_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.manga.manga_title} chapter {self.chapter_number}"
@@ -41,10 +43,25 @@ class Comment(models.Model):
     def __str__(self):
         return f"{self.user.username} {self.manga.manga_title}"
 
+class Follow(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    followers = models.ManyToManyField(User, related_name="followers", blank=True)
+    following = models.ManyToManyField(User, related_name="following", blank=True)
+
+    def __str__(self):
+        return f"{self.user}"
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.ManyToManyField(Comment)
+
+    def __str__(self):
+        return f"{self.user} liked {self.comment}"
+
+
 class Avaliation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     manga = models.ForeignKey(Manga, on_delete=models.CASCADE)
-    avaliation_text = models.TextField()
     avaliation_number = models.IntegerField(default=0)
 
     def __str__(self):

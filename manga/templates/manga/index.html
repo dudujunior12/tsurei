@@ -12,13 +12,13 @@
             <div class="manga-info-container">
                 <div class="manga-info">
                     <div class="manga-text">
-                        <h2 class="manga-title">{{ popular_mangas.first.manga_title }}</h2>
+                        <h2 class="manga-title"><a href="{% url 'show_manga' popular_mangas.first.id %}">{{ popular_mangas.first.manga_title }}</a></h2>
                         <div class="summary">
                             <p><strong>Summary</strong></p>
                             <p class="manga-summary">{{ popular_mangas.first.summary }}</p>
                         </div>
                         <p class="manga-author"><strong>Author:</strong> {{ popular_mangas.first.author }}</p>
-                        <p class="manga-status"><strong>Status:</strong></p>
+                        <p class="manga-status"><strong>Status:</strong> {{ popular_mangas.first.status }}</p>
                     </div>
                     <div style="position: static !important; display: none;" class="swiper-pagination pag"></div>
                 </div>
@@ -38,7 +38,7 @@
         <div class="downpage-container">
             <div class="most-viewed">
                 <h2>Most Viewed</h2>
-                <div class="most-viewed-swiper swiper swiper2">
+                <div class="most-viewed-container swiper swiper2">
                     <div class="swiper-wrapper most-viewed-mangas">
                         {% for most_viewed_manga in most_viewed_mangas %}
                             <div class="swiper-slide most-viewed-manga">

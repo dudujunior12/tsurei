@@ -33,15 +33,15 @@
                                 </button>
                             </div>
                         {% else %}
-                            <div class="profile">
+                            <div class="btn-profile">
                                 <p>{{request.user.username}}</p>
                             </div>
-                            <div class="upload">
+                            <div class="btn-upload">
                                 <a href="{% url 'upload' %}">Upload</a>
                             </div>
                             <div class="btn-container">
                                 <button>
-                                    <a class="btn-register" href="{% url 'logout' %}">LOGOUT</a>
+                                    <a class="btn-logout" href="{% url 'logout' %}">LOGOUT</a>
                                 </button>
                             </div>
                         {% endif %}

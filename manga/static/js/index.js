@@ -22,12 +22,13 @@ swiper1.on('slideChangeTransitionEnd', function(){
 });
 
 function change_manga_info(current_manga_id){
-    fetch("manga/" + current_manga_id, {
+
+    fetch("manga/get/" + current_manga_id, {
         method: 'GET'
     })
     .then(response => response.json())
     .then(data => {
-        document.querySelector('.manga-title').innerHTML = data.manga_title;
+        document.querySelector('.manga-title').innerHTML = "<a href='manga/" + data.manga_id + "'>" + data.manga_title + "</a>";
         document.querySelector('.manga-summary').innerHTML = data.manga_summary;
         document.querySelector('.manga-author').innerHTML = "<strong>Author: </strong>" + data.manga_author;
         document.querySelector('.manga-status').innerHTML = "<strong>Status: </strong>" + data.manga_status;

@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateUserForm, UploadMangaForm
 from django.contrib.auth.forms import AuthenticationForm
-from .models import User, Manga
+from .models import User, Manga, Chapter
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -18,10 +18,20 @@ def index(request):
         "latest_mangas": latest_mangas,
         })
 
-def get_manga(request, id):
+
+def show_manga(request, id):
     manga = get_object_or_404(Manga, id=id)
     
-    return JsonResponse({"manga_title": manga.manga_title, "manga_summary": manga.summary, "status": "Ativo", "manga_author": manga.author})
+    manga_chapters = Chapter.objects.filter(manga=manga)
+
+    return render(request, "manga/show_manga.html", {"manga": manga, "manga_chapters": manga_chapters})
+
+def get_manga(request, id):
+    if request.method == "GET":
+        manga = get_object_or_404(Manga, id=id)
+        return JsonResponse({"manga_title": manga.manga_title, "manga_summary": manga.summary, "manga_status": manga.status, "manga_author": manga.author, "manga_id": manga.id})
+    
+    return JsonResponse({"message_error": "Get method required."})
 
 
 
