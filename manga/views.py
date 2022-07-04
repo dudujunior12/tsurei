@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateUserForm, UploadMangaForm, CreateComment
 from django.contrib.auth.forms import AuthenticationForm
-from .models import User, Manga, Chapter, Comment
+from .models import User, Manga, Chapter, Comment, Like
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -13,8 +13,6 @@ def index(request):
     popular_mangas = Manga.objects.all()
     most_viewed_mangas = Manga.objects.all()
     latest_mangas = Manga.objects.all()
-
-    print(latest_mangas.first().chapters.first().chapter_number)
 
     return render(request, "manga/index.html", {
         "popular_mangas": popular_mangas,
@@ -63,12 +61,25 @@ def show_manga(request, id):
     # Follow
 
     # Profile
-
     manga = get_object_or_404(Manga, id=id)
     manga_chapters = Chapter.objects.filter(manga=manga)
     comments = Comment.objects.filter(manga=manga).order_by("-posted_date")
 
-    return render(request, "manga/show_manga.html", {"manga": manga, "manga_chapters": manga_chapters, "comment_form": comment_form, "comments": comments})
+    try:
+        liked_comments_id = []
+        for comment in comments:
+            liked_comments_id.append(Like.objects.get(user=request.user, comment=comment).comment.id)
+    except:
+        liked_comments_id = []
+
+
+    return render(request, "manga/show_manga.html", {
+        "manga": manga, 
+        "manga_chapters": manga_chapters, 
+        "comment_form": comment_form, 
+        "comments": comments,
+        "liked_comments_id": liked_comments_id,
+    })
 
 def get_manga(request, id):
     if request.method == "GET":

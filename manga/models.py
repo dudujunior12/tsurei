@@ -54,7 +54,7 @@ class Follow(models.Model):
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    comment = models.ManyToManyField(Comment)
+    comment = models.ForeignKey(Comment, related_name="liked_comment", on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.user} liked {self.comment}"

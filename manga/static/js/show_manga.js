@@ -38,5 +38,11 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     })
 
-// Like
+    // Like
+    document.querySelectorAll('.btn-like').forEach(button => {
+        button.onclick = function(){
+            
+        }
+    });
+
 });
