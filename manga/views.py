@@ -12,6 +12,8 @@ def index(request):
     most_viewed_mangas = Manga.objects.all()
     latest_mangas = Manga.objects.all()
 
+    print(latest_mangas.first().chapters.first().chapter_number)
+
     return render(request, "manga/index.html", {
         "popular_mangas": popular_mangas,
         "most_viewed_mangas": most_viewed_mangas,

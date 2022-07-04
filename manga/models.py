@@ -19,7 +19,7 @@ class Manga(models.Model):
         return f"{self.manga_title}"
 
 class Chapter(models.Model):
-    manga = models.ForeignKey(Manga, on_delete=models.CASCADE)
+    manga = models.ForeignKey(Manga, related_name="chapters", on_delete=models.CASCADE)
     chapter_title = models.CharField(max_length=100, null="true", blank="true")
     chapter_number = models.IntegerField(default=1)
     image = models.ImageField(upload_to='mangas/')

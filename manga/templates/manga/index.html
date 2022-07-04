@@ -62,9 +62,9 @@
                             </div>
                             <div class="manga-grid-info">
                                 <h3><a href="{% url 'show_manga' latest_manga.id %}">{{ latest_manga.manga_title }}</a></h3>
-                                <p>Chapter 3</p>
-                                <p>Chapter 2</p>
-                                <p>Chapter 1</p>
+                                {% for chapter in latest_manga.chapters.all %}
+                                <p>Chapter {{ chapter.chapter_number }}</p>
+                                {% endfor %}
                             </div>
                         </div>
                         {% endfor %}
