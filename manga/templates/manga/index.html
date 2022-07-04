@@ -12,22 +12,22 @@
             <div class="manga-info-container">
                 <div class="manga-info">
                     <div class="manga-text">
-                        <h2>Return of the Mount Hua Sect</h2>
+                        <h2 class="manga-title">{{ popular_mangas.first.manga_title }}</h2>
                         <div class="summary">
                             <p><strong>Summary</strong></p>
-                            <p>BLALBLALBALLBABLALB</p>
+                            <p class="manga-summary">{{ popular_mangas.first.summary }}</p>
                         </div>
-                        <p><strong>Author:</strong> </p>
-                        <p><strong>Status:</strong> </p>
+                        <p class="manga-author"><strong>Author:</strong> {{ popular_mangas.first.author }}</p>
+                        <p class="manga-status"><strong>Status:</strong></p>
                     </div>
-                    <div style="position: static !important;" class="swiper-pagination pag"></div>
+                    <div style="position: static !important; display: none;" class="swiper-pagination pag"></div>
                 </div>
             </div>
             <div class="manga-img swiper swiper1">
                 <div class="swiper-wrapper">
                     {% for popular_manga in popular_mangas %}
-                        <div class="swiper-slide">
-                            <img id="popular-manga-img" data-set="{{ popular_manga.id }}" src="{{ popular_manga.manga_cover.url }}">
+                        <div id="popular-manga-img" data-id="{{ popular_manga.id }}" class="swiper-slide">
+                            <img src="{{ popular_manga.manga_cover.url }}">
                         </div>
                     {% endfor%}
                 </div>
@@ -74,23 +74,6 @@
         </div>
     </div>
 
-    <script>
-        var swiper = new Swiper(".swiper1", {
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-        });
-
-        var swiper = new Swiper(".swiper2", {
-            slidesPerView: 5,
-            slidesPerGroup: 5,
-            spaceBetween: 50,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+    <script src="{% static 'js/index.js' %}"></script>
 </div>
 {% endblock %}

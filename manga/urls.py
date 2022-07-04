@@ -7,4 +7,5 @@ urlpatterns = [
     path('register/', views.register_view, name="register"),
     path('logout/', views.logout_view, name="logout"),
     path('upload/', views.upload, name="upload"),
+    path('manga/<int:id>', views.get_manga, name="get_manga")
 ]

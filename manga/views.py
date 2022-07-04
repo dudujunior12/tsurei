@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateUserForm, UploadMangaForm
 from django.contrib.auth.forms import AuthenticationForm
 from .models import User, Manga
@@ -10,12 +11,19 @@ def index(request):
     popular_mangas = Manga.objects.all()
     most_viewed_mangas = Manga.objects.all()
     latest_mangas = Manga.objects.all()
-    
+
     return render(request, "manga/index.html", {
         "popular_mangas": popular_mangas,
         "most_viewed_mangas": most_viewed_mangas,
         "latest_mangas": latest_mangas,
         })
+
+def get_manga(request, id):
+    manga = get_object_or_404(Manga, id=id)
+    
+    return JsonResponse({"manga_title": manga.manga_title, "manga_summary": manga.summary, "status": "Ativo", "manga_author": manga.author})
+
+
 
 @login_required
 def upload(request):
