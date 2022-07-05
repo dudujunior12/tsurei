@@ -93,11 +93,14 @@ def show_manga(request, id):
     manga = get_object_or_404(Manga, id=id)
     manga_chapters = Chapter.objects.filter(manga=manga)
     comments = Comment.objects.filter(manga=manga).order_by("-posted_date")
-    bookmark = Bookmark.objects.filter(user=request.user, manga=manga)
+    try:
+        bookmark = Bookmark.objects.filter(user=request.user, manga=manga)
 
-    if bookmark:
-        bookmarked = "Bookmarked"
-    else:
+        if bookmark:
+            bookmarked = "Bookmarked"
+        else:
+            bookmarked = "Bookmark"
+    except:
         bookmarked = "Bookmark"
 
     try:
