@@ -1,9 +1,10 @@
+from queue import Empty
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateUserForm, UploadMangaForm, CreateComment
 from django.contrib.auth.forms import AuthenticationForm
-from .models import User, Manga, Chapter, Comment, Like
+from .models import User, Manga, Chapter, Comment, Like, Bookmark
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -19,6 +20,45 @@ def index(request):
         "most_viewed_mangas": most_viewed_mangas,
         "latest_mangas": latest_mangas,
         })
+
+@login_required
+@csrf_exempt
+def bookmark(request, manga_id):
+    if request.method == "POST":
+        manga = Manga.objects.get(id=manga_id)
+
+        if Bookmark.objects.filter(user=request.user, manga=manga):
+            Bookmark.objects.get(user=request.user, manga=manga).delete()
+            bookmarked = False
+
+            return JsonResponse({"message": "Unbookmarked successfully. ", "bookmarked": bookmarked})
+        else:
+            Bookmark(user=request.user, manga=manga).save()
+            print("CREATED PORRA")
+            bookmarked = True
+            return JsonResponse({"message": "Bookmarked successfully. ", "bookmarked": bookmarked})
+
+    return JsonResponse({"message_error": "POST request required."})
+
+
+
+@login_required
+@csrf_exempt
+def like_comment(request, manga_id, comment_id):
+    if request.method == "POST":
+        comment = Comment.objects.get(id=comment_id)
+        like_filter = Like.objects.filter(user=request.user, comment=comment)
+        if like_filter:
+            like_filter.delete()
+            liked = False
+            return JsonResponse({"message": "Comment unliked successfully.", "liked": liked})
+
+        else:
+            like_obj = Like(user=request.user, comment=comment).save()
+            liked = True
+            return JsonResponse({"message": "Comment liked successfully.", "liked": liked})
+            
+    return JsonResponse({"message_error": "POST request required."})
 
 @login_required
 @csrf_exempt
@@ -50,20 +90,15 @@ def new_comment(request, id):
 
 def show_manga(request, id):
     comment_form = CreateComment()
-
-    
-    # Bookmark 
-
-    # Add Chapter
-
-    # Create Comment
-
-    # Follow
-
-    # Profile
     manga = get_object_or_404(Manga, id=id)
     manga_chapters = Chapter.objects.filter(manga=manga)
     comments = Comment.objects.filter(manga=manga).order_by("-posted_date")
+    bookmark = Bookmark.objects.filter(user=request.user, manga=manga)
+
+    if bookmark:
+        bookmarked = "Bookmarked"
+    else:
+        bookmarked = "Bookmark"
 
     try:
         liked_comments_id = []
@@ -79,6 +114,7 @@ def show_manga(request, id):
         "comment_form": comment_form, 
         "comments": comments,
         "liked_comments_id": liked_comments_id,
+        "bookmarked": bookmarked,
     })
 
 def get_manga(request, id):

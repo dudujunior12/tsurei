@@ -14,8 +14,9 @@
                 <div class="manga-img">
                     <img src="{{ manga.manga_cover.url }}">
                 </div>
+                <!-- Bookmark -->
                 <div class="bookmark">
-                    <button><icon><img src="{% static 'images/bookmark.png' %}"></icon>Bookmark</button>
+                    <button class="btn-bookmark"><icon><img src="{% static 'images/bookmark.png' %}"></icon><p class="bookmark-text">{{ bookmarked }}</p></button>
                 </div>
             </div>
             <div class="manga-right-container">
@@ -50,6 +51,7 @@
         <div class="comments">
             <div class="add-comment">
                 <h2>Place a comment</h2>
+                <!-- Add Comment Form -->
                 <form class="new-comment-form" method="POST" action="{% url 'new_comment' manga.id %}">
                     {% csrf_token %}
                     {% for field in comment_form %}

@@ -42,7 +42,7 @@ class Comment(models.Model):
     posted_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username} {self.manga.manga_title}"
+        return f"{self.manga.manga_title} - {self.user.username}:{self.comment_text}"
 
 class Follow(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -57,7 +57,7 @@ class Like(models.Model):
     comment = models.ForeignKey(Comment, related_name="liked_comment", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.user} liked {self.comment}"
+        return f"On {self.comment.manga.manga_title}, {self.user} liked {self.comment.comment_text}"
 
 
 class Avaliation(models.Model):
