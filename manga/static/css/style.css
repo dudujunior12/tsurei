@@ -5,6 +5,14 @@
     color: white;
 }
 
+a{
+    text-decoration: none;
+}
+
+input{
+    color: black;
+}
+
 .container{
     width: 100%;
     min-height: 100vh;

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 // Bookmark
     document.querySelector('.btn-bookmark').onclick = function(){
-        fetch("/manga/" + manga_id + '/bookmark', {
+        fetch("/manga/" + manga_id + '/add-bookmark', {
             method: "POST",
         })
         .then(response => response.json())

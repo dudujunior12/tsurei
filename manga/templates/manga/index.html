@@ -36,16 +36,16 @@
     </div>
     <div class="downpage">
         <div class="downpage-container">
-            <div class="most-viewed">
+            <div class="slide-container">
                 <h2>Most Viewed</h2>
-                <div class="most-viewed-container swiper swiper2">
-                    <div class="swiper-wrapper most-viewed-mangas">
+                <div class="slide-manga-container swiper swiper2">
+                    <div class="slide-mangas swiper-wrapper">
                         {% for most_viewed_manga in most_viewed_mangas %}
-                            <div class="swiper-slide most-viewed-manga">
-                                <div class="most-viewed-img">
+                            <div class="slide-manga swiper-slide">
+                                <div class="slide-manga-img">
                                     <img src="{{ most_viewed_manga.manga_cover.url }}">
                                 </div>
-                                <h3><a href="{% url 'show_manga' most_viewed_manga.id %}">{{ most_viewed_manga.manga_title }}</a></h3>
+                                <h3><a href="#">{{ most_viewed_manga.manga_title }}</a></h3>
                             </div>
                         {% endfor%}
                     </div>

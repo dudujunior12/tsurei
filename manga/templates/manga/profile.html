@@ -1,0 +1,60 @@
+{% extends 'manga/layout.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="main-container">
+    <div class="left-container">
+
+    </div>
+    <div class="right-container">
+        <div class="profile-container">
+            <div class="top-info">
+                <p>dudujunior12</p>
+                {% if request.user.username != username %}<button class="btn-follow">{% if follow %}Follow{% else %}Unfollow{% endif %}</button>{% endif %}
+            </div>
+            <div class="down-info">
+                <p>0 followers</p>
+                <p>0 following</p>
+            </div>
+        </div>
+        <div class="slides-container">
+            <div class="slide-container">
+                <h2>Created Mangas</h2>
+                <div class="slide-manga-container swiper swiper2">
+                    <div class="slide-mangas swiper-wrapper">
+                        {% for most_viewed_manga in most_viewed_mangas %}
+                            <div class="slide-manga swiper-slide">
+                                <div class="slide-manga-img">
+                                    <img src="{{ most_viewed_manga.manga_cover.url }}">
+                                </div>
+                                <h3><a href="#">{{ most_viewed_manga.manga_title }}</a></h3>
+                            </div>
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-container">
+                <h2>Bookmarked Mangas</h2>
+                <div class="slide-manga-container swiper swiper2">
+                    <div class="slide-mangas swiper-wrapper">
+                        {% for most_viewed_manga in most_viewed_mangas %}
+                            <div class="slide-manga swiper-slide">
+                                <div class="slide-manga-img">
+                                    <img src="{{ most_viewed_manga.manga_cover.url }}">
+                                </div>
+                                <h3><a href="#">{{ most_viewed_manga.manga_title }}</a></h3>
+                            </div>
+                        {% endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}
