@@ -35,23 +35,22 @@ def profile(request, username):
 
     print(bookmarked_mangas)
 
-    if request.user.username != username:
-        follow = Follow.objects.filter(user=request.user)
-        following = other_user.following.all().count()
-        followers = other_user.followers.all().count()
+    follow = Follow.objects.filter(user=request.user)
+    following = other_user.following.all().count()
+    followers = other_user.followers.all().count()
 
-        other_user_follow = {
-            "following": following,
-            "followers": followers, 
-        }
-        if follow:
-            if other_user in follow.first().following.all():
-                btn_follow = False
-            else:
-                btn_follow = True
-            other_user_follow["btn-follow"] = btn_follow
-                
-            return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username, "other_user_follow": other_user_follow})
+    other_user_follow = {
+        "following": following,
+        "followers": followers, 
+    }
+    if follow:
+        if other_user in follow.first().following.all():
+            btn_follow = False
+        else:
+            btn_follow = True
+        other_user_follow["btn-follow"] = btn_follow
+            
+        return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username, "other_user_follow": other_user_follow})
 
     return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username})
 
