@@ -45,7 +45,7 @@
                                 <div class="slide-manga-img">
                                     <img src="{{ most_viewed_manga.manga_cover.url }}">
                                 </div>
-                                <h3><a href="#">{{ most_viewed_manga.manga_title }}</a></h3>
+                                <h3><a href="{% url 'show_manga' most_viewed_manga.id %}">{{ most_viewed_manga.manga_title }}</a></h3>
                             </div>
                         {% endfor%}
                     </div>

@@ -23,17 +23,37 @@ def index(request):
 
 def profile(request, username):
     mangas = Manga.objects.all()
+
+    other_user = get_object_or_404(User, username=username)
+    created_mangas = Manga.objects.filter(user=other_user)
+    bookmarks = Bookmark.objects.filter(user=other_user)
+    print(bookmarks)
+    bookmarked_mangas = []
+    for bookmark in bookmarks:
+        bookmarked_manga = Manga.objects.get(manga_title=bookmark.manga.manga_title)
+        bookmarked_mangas.append(bookmarked_manga)
+
+    print(bookmarked_mangas)
+
     if request.user.username != username:
         follow = Follow.objects.filter(user=request.user)
-        other_user = get_object_or_404(User, username=username)
+        following = other_user.following.all().count()
+        followers = other_user.followers.all().count()
+
+        other_user_follow = {
+            "following": following,
+            "followers": followers, 
+        }
         if follow:
             if other_user in follow.first().following.all():
-                follow = False
+                btn_follow = False
             else:
-                follow = True
-            return render(request, "manga/profile.html", {"most_viewed_mangas": mangas, "username": username, "follow": follow})
+                btn_follow = True
+            other_user_follow["btn-follow"] = btn_follow
+                
+            return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username, "other_user_follow": other_user_follow})
 
-    return render(request, "manga/profile.html", {"most_viewed_mangas": mangas, "username": username})
+    return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username})
 
 @login_required
 @csrf_exempt
@@ -196,8 +216,6 @@ def get_manga(request, id):
         return JsonResponse({"manga_title": manga.manga_title, "manga_summary": manga.summary, "manga_status": manga.status, "manga_author": manga.author, "manga_id": manga.id})
     
     return JsonResponse({"message_error": "Get method required."})
-
-
 
 @login_required
 def upload(request):

@@ -7,50 +7,52 @@
 
 {% block main %}
 <div class="main-container">
-    <div class="left-container">
-
-    </div>
-    <div class="right-container">
-        <div class="profile-container">
+    <div class="profile-container">
+        <div class="profile">
             <div class="top-info">
-                <p>dudujunior12</p>
-                {% if request.user.username != username %}<button class="btn-follow">{% if follow %}Follow{% else %}Unfollow{% endif %}</button>{% endif %}
-            </div>
-            <div class="down-info">
-                <p>0 followers</p>
-                <p>0 following</p>
-            </div>
-        </div>
-        <div class="slides-container">
-            <div class="slide-container">
-                <h2>Created Mangas</h2>
-                <div class="slide-manga-container swiper swiper2">
-                    <div class="slide-mangas swiper-wrapper">
-                        {% for most_viewed_manga in most_viewed_mangas %}
-                            <div class="slide-manga swiper-slide">
-                                <div class="slide-manga-img">
-                                    <img src="{{ most_viewed_manga.manga_cover.url }}">
-                                </div>
-                                <h3><a href="#">{{ most_viewed_manga.manga_title }}</a></h3>
-                            </div>
-                        {% endfor%}
-                    </div>
+                <div class="profile-img">
+                    <img src="{% static 'images/gg_profile.png'%}" alt="profile-img">
+                </div>
+                <div class="info">
+                    <p><strong>{{ username }}</strong></p>
+                    {% if request.user.username != username %}<button class="btn-follow">{% if other_user_follow.btn_follow %}Follow{% else %}Unfollow{% endif %}</button>{% endif %}
                 </div>
             </div>
-            
-            <div class="slide-container">
-                <h2>Bookmarked Mangas</h2>
-                <div class="slide-manga-container swiper swiper2">
-                    <div class="slide-mangas swiper-wrapper">
-                        {% for most_viewed_manga in most_viewed_mangas %}
-                            <div class="slide-manga swiper-slide">
-                                <div class="slide-manga-img">
-                                    <img src="{{ most_viewed_manga.manga_cover.url }}">
-                                </div>
-                                <h3><a href="#">{{ most_viewed_manga.manga_title }}</a></h3>
+            <div class="down-info">
+                <p>{{ other_user_follow.followers }} followers</p>
+                <p>{{ other_user_follow.following }} following</p>
+            </div>
+        </div>
+    </div>
+    <div class="slides-container">
+        <div class="slide-container">
+            <h2>Created Mangas</h2>
+            <div class="slide-manga-container swiper swiper2">
+                <div class="slide-mangas swiper-wrapper">
+                    {% for created_manga in created_mangas %}
+                        <div class="slide-manga swiper-slide">
+                            <div class="slide-manga-img">
+                                <img src="{{ created_manga.manga_cover.url }}">
                             </div>
-                        {% endfor%}
-                    </div>
+                            <h3><a href="#">{{ created_manga.manga_title }}</a></h3>
+                        </div>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide-container">
+            <h2>Bookmarked Mangas</h2>
+            <div class="slide-manga-container swiper swiper2">
+                <div class="slide-mangas swiper-wrapper">
+                    {% for bookmarked_manga in bookmarked_mangas %}
+                        <div class="slide-manga swiper-slide">
+                            <div class="slide-manga-img">
+                                <img src="{{ bookmarked_manga.manga_cover.url }}">
+                            </div>
+                            <h3><a href="#">{{ bookmarked_manga.manga_title }}</a></h3>
+                        </div>
+                    {% endfor%}
                 </div>
             </div>
         </div>
