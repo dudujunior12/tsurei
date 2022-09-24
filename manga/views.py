@@ -21,6 +21,15 @@ def index(request):
         "latest_mangas": latest_mangas,
         })
 
+def bookmarks(request):
+    return render(request, 'manga/bookmarks.html')
+
+def latest(request):
+    return render(request, 'manga/latest.html')
+
+def categories(request):
+    return render(request, 'manga/categories.html')
+
 def profile(request, username):
     mangas = Manga.objects.all()
 
