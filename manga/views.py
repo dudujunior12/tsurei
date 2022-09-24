@@ -35,24 +35,32 @@ def profile(request, username):
 
     print(bookmarked_mangas)
 
-    follow = Follow.objects.filter(user=request.user)
-    following = other_user.following.all().count()
-    followers = other_user.followers.all().count()
+
+    follow = Follow.objects.get(user=other_user)
+    print("FOLLOWING: ", follow.following.count())
+    print("FOLLOWERS: ", follow.followers.count())
+
+    following = follow.following.all().count()
+    followers = follow.followers.all().count()
 
     other_user_follow = {
         "following": following,
         "followers": followers, 
     }
-    if follow:
-        if other_user in follow.first().following.all():
-            btn_follow = False
-        else:
-            btn_follow = True
-        other_user_follow["btn-follow"] = btn_follow
-            
-        return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username, "other_user_follow": other_user_follow})
 
-    return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username})
+    print("OTHER_USER ", other_user)
+
+    other_user_follow_obj = Follow.objects.get(user=request.user)
+    print(other_user_follow_obj.following.all())
+    if other_user in other_user_follow_obj.following.all():
+        btn_follow = False
+    else:
+        btn_follow = True
+
+    print(btn_follow)
+    other_user_follow["btn_follow"] = btn_follow
+            
+    return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username, "other_user_follow": other_user_follow})
 
 @login_required
 @csrf_exempt

@@ -15,7 +15,7 @@
                 </div>
                 <div class="info">
                     <p><strong>{{ username }}</strong></p>
-                    {% if request.user.username != username %}<button class="btn-follow">{% if other_user_follow.btn_follow %}Follow{% else %}Unfollow{% endif %}</button>{% endif %}
+                    {% if request.user.username != username %}<button class="btn-follow">{% if other_user_follow.btn_follow == True %}Follow{% endif %}{% if other_user_follow.btn_follow == False %}Unfollow{% endif %}</button>{% endif %}
                 </div>
             </div>
             <div class="down-info">
@@ -25,6 +25,7 @@
         </div>
     </div>
     <div class="slides-container">
+        {% if created_mangas %}
         <div class="slide-container">
             <h2>Created Mangas</h2>
             <div class="slide-manga-container swiper swiper2">
@@ -40,7 +41,9 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         
+        {% if bookmarked_mangas %}
         <div class="slide-container">
             <h2>Bookmarked Mangas</h2>
             <div class="slide-manga-container swiper swiper2">
@@ -56,6 +59,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
 </div>
 <script src="{% static 'js/profile.js' %}"></script>

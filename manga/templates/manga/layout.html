@@ -34,7 +34,7 @@
                             </div>
                         {% else %}
                             <div class="btn-profile">
-                                <p>{{request.user.username}}</p>
+                                <a href="{% url 'profile' request.user.username %}">{{request.user.username}}</a>
                             </div>
                             <div class="btn-upload">
                                 <a href="{% url 'upload' %}">Upload</a>
