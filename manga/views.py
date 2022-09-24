@@ -22,7 +22,10 @@ def index(request):
         })
 
 def bookmarks(request):
-    return render(request, 'manga/bookmarks.html')
+    other_user = get_object_or_404(User, username=request.user.username)
+    bookmarked_mangas = get_bookmarked_mangas(other_user)
+    print(bookmarked_mangas)
+    return render(request, 'manga/bookmarks.html', {"bookmarked_mangas": bookmarked_mangas})
 
 def latest(request):
     return render(request, 'manga/latest.html')
@@ -34,15 +37,8 @@ def profile(request, username):
     mangas = Manga.objects.all()
 
     other_user = get_object_or_404(User, username=username)
-    created_mangas = Manga.objects.filter(user=other_user)
-    bookmarks = Bookmark.objects.filter(user=other_user)
-    print(bookmarks)
-    bookmarked_mangas = []
-    for bookmark in bookmarks:
-        bookmarked_manga = Manga.objects.get(manga_title=bookmark.manga.manga_title)
-        bookmarked_mangas.append(bookmarked_manga)
-
-    print(bookmarked_mangas)
+    created_mangas = get_created_mangas(other_user)
+    bookmarked_mangas = get_bookmarked_mangas(other_user)
 
 
     follow = Follow.objects.get(user=other_user)
@@ -70,6 +66,20 @@ def profile(request, username):
     other_user_follow["btn_follow"] = btn_follow
             
     return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username, "other_user_follow": other_user_follow})
+
+def get_created_mangas(other_user):
+    created_mangas = Manga.objects.filter(user=other_user)
+    return created_mangas
+
+def get_bookmarked_mangas(other_user):
+    bookmarks = Bookmark.objects.filter(user=other_user)
+    print(bookmarks)
+    bookmarked_mangas = []
+    for bookmark in bookmarks:
+        bookmarked_manga = Manga.objects.get(manga_title=bookmark.manga.manga_title)
+        bookmarked_mangas.append(bookmarked_manga)
+
+    return bookmarked_mangas
 
 @login_required
 @csrf_exempt
