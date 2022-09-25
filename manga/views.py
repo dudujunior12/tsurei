@@ -2,7 +2,7 @@ from queue import Empty
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CreateUserForm, UploadMangaForm, CreateComment
+from .forms import CreateUserForm, UploadMangaForm, CreateComment, CreateNewChapter
 from django.contrib.auth.forms import AuthenticationForm
 from .models import User, Manga, Chapter, Comment, Like, Bookmark, Follow
 from django.contrib.auth.decorators import login_required
@@ -20,6 +20,20 @@ def index(request):
         "most_viewed_mangas": most_viewed_mangas,
         "latest_mangas": latest_mangas,
         })
+
+def new_chapter(request, manga_id):
+    if request.method == "POST":
+        form = CreateNewChapter(request.POST, request.FILES)
+        print(form)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.manga = get_object_or_404(Manga, id=manga_id)
+            form.save()
+        else:
+            print("Chapter Error")
+        return redirect("show_manga", id=manga_id)
+    else:
+        return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
 def bookmarks(request):
     other_user = get_object_or_404(User, username=request.user.username)
@@ -206,6 +220,8 @@ def new_comment(request, id):
 
 def show_manga(request, id):
     comment_form = CreateComment()
+    new_chapter_form = CreateNewChapter()
+
     manga = get_object_or_404(Manga, id=id)
     manga_chapters = Chapter.objects.filter(manga=manga)
     comments = Comment.objects.filter(manga=manga).order_by("-posted_date")
@@ -229,7 +245,8 @@ def show_manga(request, id):
 
     return render(request, "manga/show_manga.html", {
         "manga": manga, 
-        "manga_chapters": manga_chapters, 
+        "manga_chapters": manga_chapters,
+        "new_chapter_form": new_chapter_form,
         "comment_form": comment_form, 
         "comments": comments,
         "liked_comments_id": liked_comments_id,

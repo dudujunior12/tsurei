@@ -33,7 +33,27 @@
 
     <div class="bottom-container">
         <div class="chapters">
-            <h2>Chapters</h2>
+            <div class="chapter-top">
+                <h2>Chapters</h2>
+                <button id="btn-new-chapter">New Chapter</button>
+                <!-- The Modal -->
+                <div id="new-chapter-modal" class="modal">
+                <!-- Modal content -->
+                <div class="chapter-modal-content">
+                    <span class="close">&times;</span>
+                    <form class="new-chapter-form" method="POST" enctype="multipart/form-data" action="{% url 'new-chapter' manga.id %}">
+                        {% csrf_token %}
+                        {% for field in new_chapter_form %}
+                            <div class="field">
+                                <label>{{field.label}}</label>
+                                {{field}}
+                            </div>
+                        {% endfor %}
+                        <button class="submit">Create</button>
+                    </form>
+                </div>
+                </div>
+            </div>
             <div class="chapter-list">
                 {% for chapter in manga_chapters %}
                 <div class="chapter">

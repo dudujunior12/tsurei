@@ -1,5 +1,5 @@
 from django import forms
-from .models import User, Manga, Comment
+from .models import User, Manga, Comment, Chapter
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 
@@ -17,3 +17,8 @@ class CreateComment(ModelForm):
     class Meta:
         model = Comment
         fields = ['comment_text']
+
+class CreateNewChapter(ModelForm):
+    class Meta:
+        model = Chapter
+        fields = ['chapter_title', 'chapter_number', 'image']
