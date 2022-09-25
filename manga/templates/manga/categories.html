@@ -2,23 +2,23 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/latest.css'%}">
+<link rel="stylesheet" href="{% static 'css/categories.css'%}">
 {% endblock %}
 
 {% block main %}
 <div class="main-container">
-    <div class="latest-container">
-        <h2>Latest</h2>
-        <div class="latest-container">
+    <div class="categories-container">
+        <h2>Categories</h2>
+        <div class="categories-container">
             <div class="manga-grid">
-                {% for latest_manga in latest_mangas %}
+                {% for categories_manga in categories__mangas %}
                 <div class="manga-grid-item">
                     <div class="manga-grid-image">
-                        <img src="{{ latest_manga.manga_cover.url }}">
+                        <img src="{{ categories_manga.manga_cover.url }}">
                     </div>
                     <div class="manga-grid-info">
-                        <h3><a href="{% url 'show_manga' latest_manga.id %}">{{ latest_manga.manga_title }}</a></h3>
-                        {% for chapter in latest_manga.chapters.all %}
+                        <h3><a href="{% url 'show_manga' categories_manga.id %}">{{ categories_manga.manga_title }}</a></h3>
+                        {% for chapter in categories_manga.chapters.all %}
                         <p>Chapter {{ chapter.chapter_number }}</p>
                         {% endfor %}
                     </div>
