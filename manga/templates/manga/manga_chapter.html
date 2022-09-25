@@ -1,0 +1,18 @@
+{% extends 'manga/layout.html' %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/manga_chapter.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="main-container">
+        <div class="chapter-container">
+            <h2>{{manga.manga_title}} Chapter {{chapter.chapter_number}}</h2>
+            <div class="chapter">
+                <img width="1200" height="800" src="{{ chapter.image.url }}">
+            </div>
+        <div>
+    </div>
+{% endblock %}

@@ -58,7 +58,7 @@
                 {% for chapter in manga_chapters %}
                 <div class="chapter">
                     <div class="chapter-info">
-                        <p class="chapter-number"><strong>Chapter {{ chapter.chapter_number }}</strong></p>
+                        <a href="{% url 'manga-chapter' manga.id chapter.id%}" class="chapter-number"><strong>Chapter {{ chapter.chapter_number }}</strong></a>
                         <p>{{ chapter.posted_date }}</p>
                     </div>
                 </div>

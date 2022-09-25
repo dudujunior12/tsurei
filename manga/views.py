@@ -21,6 +21,12 @@ def index(request):
         "latest_mangas": latest_mangas,
         })
 
+def manga_chapter(request, manga_id, chapter_id):
+    manga = get_object_or_404(Manga, id=manga_id)
+    chapter = Chapter.objects.get(manga=manga, id=chapter_id)
+    print(chapter)
+    return render(request, "manga/manga_chapter.html", {"chapter": chapter, "manga": manga})
+
 def new_chapter(request, manga_id):
     if request.method == "POST":
         form = CreateNewChapter(request.POST, request.FILES)

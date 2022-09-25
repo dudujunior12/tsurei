@@ -1,0 +1,31 @@
+.main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.chapter-container{
+    background-color: #1E1F21;
+    margin-top: 2%;
+    width: 55%;
+    border-radius: 5px;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapter-container h2{
+    padding: 5%;
+}
+
+.chapter{
+    height: auto;
+    margin: 5%;
+}
+
+.chapter img{
+    height: 100%;
+    max-width: 100%;
+}
