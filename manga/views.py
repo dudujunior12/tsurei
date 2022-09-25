@@ -13,7 +13,7 @@ import json
 def index(request):
     popular_mangas = Manga.objects.all()
     most_viewed_mangas = Manga.objects.all()
-    latest_mangas = Manga.objects.all()
+    latest_mangas = Manga.objects.filter().order_by("-posted_date")
 
     return render(request, "manga/index.html", {
         "popular_mangas": popular_mangas,
