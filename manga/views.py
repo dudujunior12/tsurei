@@ -37,7 +37,7 @@ def new_chapter(request, manga_id):
             form.save()
         else:
             print("Chapter Error")
-        return redirect("show_manga", id=manga_id)
+        return redirect("show-manga", id=manga_id)
     else:
         return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
@@ -96,7 +96,7 @@ def get_bookmarked_mangas(other_user):
     print(bookmarks)
     bookmarked_mangas = []
     for bookmark in bookmarks:
-        bookmarked_manga = Manga.objects.get(manga_title=bookmark.manga.manga_title)
+        bookmarked_manga = Manga.objects.get(title=bookmark.manga.title)
         bookmarked_mangas.append(bookmarked_manga)
 
     return bookmarked_mangas
@@ -220,7 +220,7 @@ def new_comment(request, id):
             form.user = request.user
             form.manga = get_object_or_404(Manga, id=id)
             form.save()
-        return redirect("show_manga", id=id)
+        return redirect("show-manga", id=id)
     else:
         return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
@@ -262,7 +262,7 @@ def show_manga(request, id):
 def get_manga(request, id):
     if request.method == "GET":
         manga = get_object_or_404(Manga, id=id)
-        return JsonResponse({"manga_title": manga.manga_title, "manga_summary": manga.summary, "manga_status": manga.status, "manga_author": manga.author, "manga_id": manga.id})
+        return JsonResponse({"manga_title": manga.title, "manga_summary": manga.summary, "manga_status": manga.status, "manga_author": manga.author, "manga_id": manga.id})
     
     return JsonResponse({"message_error": "Get method required."})
 

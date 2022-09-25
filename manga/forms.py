@@ -11,7 +11,7 @@ class CreateUserForm(UserCreationForm):
 class UploadMangaForm(ModelForm):
     class Meta:
         model = Manga
-        fields = ['author', 'manga_title', 'manga_cover', 'summary']
+        fields = ['author', 'title', 'cover', 'summary']
 
 class CreateComment(ModelForm):
     class Meta:
@@ -21,4 +21,4 @@ class CreateComment(ModelForm):
 class CreateNewChapter(ModelForm):
     class Meta:
         model = Chapter
-        fields = ['chapter_title', 'chapter_number', 'image']
+        fields = ['chapter_number', 'image']

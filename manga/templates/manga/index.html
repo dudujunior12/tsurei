@@ -12,7 +12,7 @@
             <div class="manga-info-container">
                 <div class="manga-info">
                     <div class="manga-text">
-                        <h2 class="manga-title"><a href="{% url 'show_manga' popular_mangas.first.id %}">{{ popular_mangas.first.manga_title }}</a></h2>
+                        <h2 class="manga-title"><a href="{% url 'show-manga' popular_mangas.first.id %}">{{ popular_mangas.first.title }}</a></h2>
                         <div class="summary">
                             <p><strong>Summary</strong></p>
                             <p class="manga-summary">{{ popular_mangas.first.summary }}</p>
@@ -27,7 +27,7 @@
                 <div class="swiper-wrapper">
                     {% for popular_manga in popular_mangas %}
                         <div id="popular-manga-img" data-id="{{ popular_manga.id }}" class="swiper-slide">
-                            <img src="{{ popular_manga.manga_cover.url }}">
+                            <img src="{{ popular_manga.cover.url }}">
                         </div>
                     {% endfor%}
                 </div>
@@ -43,9 +43,9 @@
                         {% for most_viewed_manga in most_viewed_mangas %}
                             <div class="slide-manga swiper-slide">
                                 <div class="slide-manga-img">
-                                    <img src="{{ most_viewed_manga.manga_cover.url }}">
+                                    <img src="{{ most_viewed_manga.cover.url }}">
                                 </div>
-                                <h3><a href="{% url 'show_manga' most_viewed_manga.id %}">{{ most_viewed_manga.manga_title }}</a></h3>
+                                <h3><a href="{% url 'show-manga' most_viewed_manga.id %}">{{ most_viewed_manga.title }}</a></h3>
                             </div>
                         {% endfor%}
                     </div>
@@ -58,10 +58,10 @@
                         {% for latest_manga in latest_mangas %}
                         <div class="manga-grid-item">
                             <div class="manga-grid-image">
-                                <img src="{{ latest_manga.manga_cover.url }}">
+                                <img src="{{ latest_manga.cover.url }}">
                             </div>
                             <div class="manga-grid-info">
-                                <h3><a href="{% url 'show_manga' latest_manga.id %}">{{ latest_manga.manga_title }}</a></h3>
+                                <h3><a href="{% url 'show-manga' latest_manga.id %}">{{ latest_manga.title }}</a></h3>
                                 {% for chapter in latest_manga.chapters.all %}
                                 <p>Chapter {{ chapter.chapter_number }}</p>
                                 {% endfor %}

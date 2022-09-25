@@ -12,7 +12,7 @@
         <div class="manga-container">
             <div class="manga-left-container">
                 <div class="manga-img">
-                    <img src="{{ manga.manga_cover.url }}">
+                    <img src="{{ manga.cover.url }}">
                 </div>
                 <!-- Bookmark -->
                 <div class="bookmark">
@@ -21,7 +21,7 @@
             </div>
             <div class="manga-right-container">
                 <div class="manga-info" data-id="{{ manga.id }}">
-                    <h2>{{ manga.manga_title }}</h2>
+                    <h2>{{ manga.title }}</h2>
                     <p><strong>Summary</strong></p>
                     <p>{{ manga.summary }}</p>
                     <p><strong>Author:</strong> {{ manga.author }}</p>
@@ -72,7 +72,7 @@
             <div class="add-comment">
                 <h2>Place a comment</h2>
                 <!-- Add Comment Form -->
-                <form class="new-comment-form" method="POST" action="{% url 'new_comment' manga.id %}">
+                <form class="new-comment-form" method="POST" action="{% url 'new-comment' manga.id %}">
                     {% csrf_token %}
                     {% for field in comment_form %}
                         {{ field }}
