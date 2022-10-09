@@ -14,10 +14,10 @@
                 {% for bookmarked_manga in bookmarked_mangas %}
                 <div class="manga-grid-item">
                     <div class="manga-grid-image">
-                        <img src="{{ bookmarked_manga.manga_cover.url }}">
+                        <img src="{{ bookmarked_manga.cover.url }}">
                     </div>
                     <div class="manga-grid-info">
-                        <h3><a href="{% url 'show_manga' bookmarked_manga.id %}">{{ bookmarked_manga.manga_title }}</a></h3>
+                        <h3><a href="{% url 'show-manga' bookmarked_manga.id %}">{{ bookmarked_manga.title }}</a></h3>
                         {% for chapter in bookmarked_manga.chapters.all %}
                         <p>Chapter {{ chapter.chapter_number }}</p>
                         {% endfor %}

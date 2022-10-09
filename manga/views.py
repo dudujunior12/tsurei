@@ -11,8 +11,8 @@ import json
 
 # Create your views here.
 def index(request):
-    popular_mangas = Manga.objects.all()
-    most_viewed_mangas = Manga.objects.all()
+    popular_mangas = Manga.objects.all() # NEED CHANGES
+    most_viewed_mangas = Manga.objects.all().order_by("-manga_views")[:10]
     latest_mangas = Manga.objects.filter().order_by("-posted_date")
 
     return render(request, "manga/index.html", {
@@ -48,10 +48,12 @@ def bookmarks(request):
     return render(request, 'manga/bookmarks.html', {"bookmarked_mangas": bookmarked_mangas})
 
 def latest(request):
-    return render(request, 'manga/latest.html')
+    latest_mangas = Manga.objects.filter().order_by("-posted_date")
+    return render(request, 'manga/latest.html', {"latest_mangas": latest_mangas})
 
 def categories(request):
-    return render(request, 'manga/categories.html')
+    categories_mangas = Manga.objects.all()
+    return render(request, 'manga/categories.html', {"categories_mangas": categories_mangas})
 
 def profile(request, username):
     mangas = Manga.objects.all()
@@ -60,8 +62,11 @@ def profile(request, username):
     created_mangas = get_created_mangas(other_user)
     bookmarked_mangas = get_bookmarked_mangas(other_user)
 
+    if Follow.objects.filter(user=other_user):
+        follow = Follow.objects.get(user=other_user)
+    else:
+        follow = Follow.objects.create(user=other_user)
 
-    follow = Follow.objects.get(user=other_user)
     print("FOLLOWING: ", follow.following.count())
     print("FOLLOWERS: ", follow.followers.count())
 
@@ -225,10 +230,15 @@ def new_comment(request, id):
         return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
 def show_manga(request, id):
+    manga = get_object_or_404(Manga, id=id)
+    print(manga.manga_views)
+    manga.manga_views = manga.manga_views + 1
+    print(manga.manga_views)
+    manga.save()
+
     comment_form = CreateComment()
     new_chapter_form = CreateNewChapter()
 
-    manga = get_object_or_404(Manga, id=id)
     manga_chapters = Chapter.objects.filter(manga=manga)
     comments = Comment.objects.filter(manga=manga).order_by("-posted_date")
     try:
