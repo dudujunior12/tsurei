@@ -11,12 +11,10 @@ import json
 
 # Create your views here.
 def index(request):
-    popular_mangas = Manga.objects.all() # NEED CHANGES
     most_viewed_mangas = Manga.objects.all().order_by("-manga_views")[:10]
     latest_mangas = Manga.objects.filter().order_by("-posted_date")
 
     return render(request, "manga/index.html", {
-        "popular_mangas": popular_mangas,
         "most_viewed_mangas": most_viewed_mangas,
         "latest_mangas": latest_mangas,
         })

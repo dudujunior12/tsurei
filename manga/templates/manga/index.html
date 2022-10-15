@@ -12,22 +12,22 @@
             <div class="manga-info-container">
                 <div class="manga-info">
                     <div class="manga-text">
-                        <h2 class="manga-title"><a href="{% url 'show-manga' popular_mangas.first.id %}">{{ popular_mangas.first.title }}</a></h2>
+                        <h2 class="manga-title"><a href="{% url 'show-manga' most_viewed_mangas.first.id %}">{{ most_viewed_mangas.first.title }}</a></h2>
                         <div class="summary">
                             <p><strong>Summary</strong></p>
-                            <p class="manga-summary">{{ popular_mangas.first.summary }}</p>
+                            <p class="manga-summary">{{ most_viewed_mangas.first.summary }}</p>
                         </div>
-                        <p class="manga-author"><strong>Author:</strong> {{ popular_mangas.first.author }}</p>
-                        <p class="manga-status"><strong>Status:</strong> {{ popular_mangas.first.status }}</p>
+                        <p class="manga-author"><strong>Author:</strong> {{ most_viewed_mangas.first.author }}</p>
+                        <p class="manga-status"><strong>Status:</strong> {{ most_viewed_mangas.first.status }}</p>
                     </div>
                     <div style="position: static !important; display: none;" class="swiper-pagination pag"></div>
                 </div>
             </div>
             <div class="manga-img swiper swiper1">
                 <div class="swiper-wrapper">
-                    {% for popular_manga in popular_mangas %}
-                        <div id="popular-manga-img" data-id="{{ popular_manga.id }}" class="swiper-slide">
-                            <img src="{{ popular_manga.cover.url }}">
+                    {% for most_viewed_manga in most_viewed_mangas %}
+                        <div id="most_viewed_manga-img" data-id="{{ most_viewed_manga.id }}" class="swiper-slide">
+                            <img src="{{ most_viewed_manga.cover.url }}">
                         </div>
                     {% endfor%}
                 </div>
