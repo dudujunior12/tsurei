@@ -18,10 +18,6 @@
                     {% if request.user.username != username %}<button class="btn-follow">{% if other_user_follow.btn_follow == True %}Follow{% endif %}{% if other_user_follow.btn_follow == False %}Unfollow{% endif %}</button>{% endif %}
                 </div>
             </div>
-            <div class="down-info">
-                <p>{{ other_user_follow.followers }} followers</p>
-                <p>{{ other_user_follow.following }} following</p>
-            </div>
         </div>
     </div>
     <div class="slides-container">
