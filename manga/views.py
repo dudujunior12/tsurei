@@ -19,9 +19,6 @@ def index(request):
         "latest_mangas": latest_mangas,
         })
 
-def layout(request):
-    return render(request, "manga/layout.html", {})
-
 def manga_chapter(request, manga_id, chapter_id):
     manga = get_object_or_404(Manga, id=manga_id)
     chapter = Chapter.objects.get(manga=manga, id=chapter_id)
@@ -64,36 +61,8 @@ def profile(request, username):
     other_user = get_object_or_404(User, username=username)
     created_mangas = get_created_mangas(other_user)
     bookmarked_mangas = get_bookmarked_mangas(other_user)
-
-    if Follow.objects.filter(user=other_user):
-        follow = Follow.objects.get(user=other_user)
-    else:
-        follow = Follow.objects.create(user=other_user)
-
-    print("FOLLOWING: ", follow.following.count())
-    print("FOLLOWERS: ", follow.followers.count())
-
-    following = follow.following.all().count()
-    followers = follow.followers.all().count()
-
-    other_user_follow = {
-        "following": following,
-        "followers": followers, 
-    }
-
-    print("OTHER_USER ", other_user)
-
-    other_user_follow_obj = Follow.objects.get(user=request.user)
-    print(other_user_follow_obj.following.all())
-    if other_user in other_user_follow_obj.following.all():
-        btn_follow = False
-    else:
-        btn_follow = True
-
-    print(btn_follow)
-    other_user_follow["btn_follow"] = btn_follow
             
-    return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username, "other_user_follow": other_user_follow})
+    return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username})
 
 def get_created_mangas(other_user):
     created_mangas = Manga.objects.filter(user=other_user)

@@ -20,7 +20,4 @@ urlpatterns = [
     path('manga/<int:id>/new-comment', views.new_comment, name="new-comment"),
     path('manga/<int:manga_id>/edit-comment/<int:comment_id>', views.edit_comment, name="edit-comment"),
     path('manga/<int:manga_id>/like-comment/<int:comment_id>', views.like_comment, name="like-comment"),
-
-
-    path('layout', views.layout, name="layout")
 ]
