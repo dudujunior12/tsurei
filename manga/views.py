@@ -42,6 +42,7 @@ def new_chapter(request, manga_id):
     else:
         return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
+@login_required
 def bookmarks(request):
     other_user = get_object_or_404(User, username=request.user.username)
     bookmarked_mangas = get_bookmarked_mangas(other_user)
@@ -56,6 +57,7 @@ def categories(request):
     categories_mangas = Manga.objects.all()
     return render(request, 'manga/categories.html', {"categories_mangas": categories_mangas})
 
+@login_required
 def profile(request, username):
     mangas = Manga.objects.all()
 

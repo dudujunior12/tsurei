@@ -12,9 +12,10 @@ a{
 
 .register-container{
     height: auto;
-    margin-top: 1%;
+    margin-top: 4%;
+    margin-bottom: 4%;
     width: 50%;
-    background-color: #1E1F21;
+    background-color: #047AED;
     color: white;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -58,7 +59,7 @@ a{
     outline: none;
     font-size: 18px;
     border: none;
-    background-color: #913FE2;
+    background-color: #002240;
     width: 100%;
     padding: 10px 20px;
     color: white;

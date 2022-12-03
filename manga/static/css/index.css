@@ -17,7 +17,7 @@ a{
 .frontpage{
     width: 75%;
     height: 50vh;
-    background-color: #1E1F21;
+    background-color: #047AED;
     border-radius: 5px;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -36,7 +36,7 @@ a{
     width: 50%;
     height: 80%;
     display: flex;
-    background-color: #913FE2;
+    background-color: #1C3FA8;
     border-radius: 3px;
     margin-left: 10%;
 }
@@ -85,7 +85,7 @@ a{
     width: 75%;
     margin-top: 10px;
     height: auto;
-    background-color: #1E1F21;
+    background-color: #047AED;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-bottom: 2%;
