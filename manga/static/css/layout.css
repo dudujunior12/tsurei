@@ -41,7 +41,8 @@ input{
     width: 250px;
     height: auto;
     display: block;
-    
+    position: relative;
+    margin: 0 10px;
 }
 
 .nav-1 .search{
@@ -78,12 +79,16 @@ input{
 }
 
 .btns{
+    position: relative;
     width: auto;
     height: 45px;
-    display: flex;
-    margin-right: 5%;
+    display: flex;  
     justify-content: center;
     align-items: center;
+}
+
+.btns a, .btns button{
+    margin: 0 10px;
 }
 
 .btns button{
