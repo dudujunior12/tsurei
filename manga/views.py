@@ -19,6 +19,9 @@ def index(request):
         "latest_mangas": latest_mangas,
         })
 
+def layout(request):
+    return render(request, "manga/layout.html", {})
+
 def manga_chapter(request, manga_id, chapter_id):
     manga = get_object_or_404(Manga, id=manga_id)
     chapter = Chapter.objects.get(manga=manga, id=chapter_id)
