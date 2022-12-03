@@ -120,8 +120,7 @@ input{
     justify-content: flex-start;
     flex-wrap: wrap;
     height: 100%;
-    position: relative;
-    left: 5%;
+    padding-left: 100px;
 }
 
 .nav-2 .btns ul li{
@@ -141,4 +140,45 @@ input{
 
 .main{
     width: 100%;
+}
+
+.footer{
+    background-color: #002240;
+    height: 150px;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0 100px;
+}
+
+.footer p{
+    padding: 10px 0;
+}
+
+.footer .btns{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.footer .btns ul li{
+    list-style: none;
+    margin: 10px;
+}
+
+.footer .btns ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.footer .social a{
+    margin: 0 10px;
 }
