@@ -92,7 +92,9 @@
 }
 
 .slide-mangas{
-    height: 35vh;
+    min-height: 30vh;
+    max-height: 40vh;
+    height: 40vh;
 }
 
 .slide-manga{
