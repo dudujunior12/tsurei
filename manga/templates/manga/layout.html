@@ -3,76 +3,166 @@
 <html>
     <head>
         <title>Tsurei</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/layout.css' %}">
-        <script src="https://kit.fontawesome.com/aff34599fe.js" crossorigin="anonymous"></script>
-        <link  rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/aff34599fe.js"
+            crossorigin="anonymous"
+        ></script>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+        />
         <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
         {% block head %} {% endblock%}
     </head>
     <body>
-        <div class="container">
-            <div class="header">
-                <nav class="nav-1">
-                    <div class="logo">
-                        <a href="{% url 'index' %}"><img class="logo-img" src="{% static 'images/logo.png' %}" alt="logo-image"></a>
-                    </div>
-                    <div class="search">
-                        <input type="text" name="q" placeholder="Search for a manga">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-                    <div class="btns">
-                        {% if not request.user.is_authenticated %}
-                            <button>
-                                <a class="btn-login" href="{% url 'login' %}">LOGIN</a>
-                            </button>
-                        {% else %}
-                            <a href="{% url 'profile' request.user.username %}">{{request.user.username}}</a>
-                            <a href="{% url 'upload' %}">Upload</a>
-                            <button>
-                                <a class="btn-logout" href="{% url 'logout' %}">LOGOUT</a>
-                            </button>
-
-                        {% endif %}
-                    </div>
-
-                </nav>
-                <nav class="nav-2">
-                    <div class="btns">
-                        <ul>
-                            <li><a href="{% url 'index' %}">Home</a></li>
-                            <li><a href="{% url 'bookmarks' %}">Bookmarks</a></li>
-                            <li><a href="{% url 'latest' %}">Latest</a></li>
-                            <li><a href="{% url 'categories' %}">Categories</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="main">
-                {% block main %}
-                {% endblock %}
-            </div>
-            <footer class="footer">
-                <div class="footer-container">
-                    <div class="title">
-                        <h1>TSUREI</h1>
-                        <p>Copyright &copy; 2022</p>
-                    </div>
-                    <div class="btns">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="features.html">Features</a></li>
-                            <li><a href="docs.html">Docs</a></li>
-                        </ul>
-                    </div>
-                    <div class="social">
-                        <a href="#"><i class="fab fa-github fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-                    </div>
+        <header class="header">
+            <img
+                src="{% static 'images/logo.png' %}"
+                alt="Website Logo Tsurei"
+            />
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li><a class="main-nav-link" href="#">Home</a></li>
+                    <li><a class="main-nav-link" href="#">Bookmarks</a></li>
+                    <li><a class="main-nav-link" href="#">Latest</a></li>
+                    <li><a class="main-nav-link" href="#">Categories</a></li>
+                </ul>
+            </nav>
+            <div class="secondary-nav">
+                <div class="search">
+                    <form class="search-box">
+                        <button type="button" class="btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
                 </div>
-            </footer>
-        </div>  
+                <a
+                    class="secondary-nav-link"
+                    href="{% url 'profile' request.user.username %}"
+                    ><i class="fas fa-user"></i
+                ></a>
+            </div>
+        </header>
+        <div class="main">{% block main %} {% endblock %}</div>
+        <footer class="footer">
+            <div class="website-td">
+                <img
+                    src="{% static 'images/logo.png' %}"
+                    alt="Website Logo Tsurei"
+                />
+                <div class="social">
+                    <a class="social-link" href="#"
+                        ><i class="fab fa-github fa-2x"></i
+                    ></a>
+                    <a class="social-link" href="#"
+                        ><i class="fab fa-facebook fa-2x"></i
+                    ></a>
+                    <a class="social-link" href="#"
+                        ><i class="fab fa-instagram fa-2x"></i
+                    ></a>
+                    <a class="social-link" href="#"
+                        ><i class="fab fa-twitter fa-2x"></i
+                    ></a>
+                </div>
+                <p>Copyright &copy; 2023</p>
+            </div>
+            <nav class="footer-nav">
+                <h2>Navigation</h2>
+                <ul class="footer-nav-list">
+                    <li><a class="footer-nav-link" href="#">Home</a></li>
+                    <li><a class="footer-nav-link" href="#">Home</a></li>
+                    <li><a class="footer-nav-link" href="#">Home</a></li>
+                    <li><a class="footer-nav-link" href="#">Home</a></li>
+                </ul>
+            </nav>
+            <div class="contact">
+                <h2>Contact</h2>
+                <p>Street lorem, 374</p>
+                <p>US - L.A</p>
+                <p>00000000000</p>
+            </div>
+        </footer>
+        {% comment %}
+        <div class="header">
+            <nav class="nav-1">
+                <div class="logo">
+                    <a href="{% url 'index' %}"
+                        ><img
+                            class="logo-img"
+                            src="{% static 'images/logo.png' %}"
+                            alt="logo-image"
+                    /></a>
+                </div>
+                <div class="search">
+                    <input
+                        type="text"
+                        name="q"
+                        placeholder="Search for a manga"
+                    />
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div class="btns">
+                    {% if not request.user.is_authenticated %}
+                    <button>
+                        <a class="btn-login" href="{% url 'login' %}">LOGIN</a>
+                    </button>
+                    {% else %}
+                    <a href="{% url 'profile' request.user.username %}"
+                        >{{request.user.username}}</a
+                    >
+                    <a href="{% url 'upload' %}">Upload</a>
+                    <button>
+                        <a class="btn-logout" href="{% url 'logout' %}"
+                            >LOGOUT</a
+                        >
+                    </button>
+
+                    {% endif %}
+                </div>
+            </nav>
+            <nav class="nav-2">
+                <div class="btns">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'bookmarks' %}">Bookmarks</a></li>
+                        <li><a href="{% url 'latest' %}">Latest</a></li>
+                        <li><a href="{% url 'categories' %}">Categories</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="title">
+                    <h1>TSUREI</h1>
+                    <p>Copyright &copy; 2022</p>
+                </div>
+                <div class="btns">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="docs.html">Docs</a></li>
+                    </ul>
+                </div>
+                <div class="social">
+                    <a href="#"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+            </div>
+        </footer>
+        {% endcomment %}
+
+        <script src="{% static 'js/search.js'%}"></script>
     </body>
 </html>

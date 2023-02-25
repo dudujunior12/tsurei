@@ -1,37 +1,137 @@
-{% extends 'manga/layout.html' %}
-{% load static %}
+{% extends 'manga/layout.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/index.css'%}" />
+{% endblock %} {% block main %}
+<section class="section-hero">
+    <div class="container">
+        {%if most_viewed_mangas.first != None %}
+        <div class="manga-presentation-slide">
+            <h2 class="manga-title">
+                <a href="{% url 'show-manga' most_viewed_mangas.first.id %}"
+                    >{{ most_viewed_mangas.first.title }}</a
+                >
+            </h2>
+            <div class="summary">
+                <p><strong>Summary</strong></p>
+                <p class="manga-summary">
+                    {{ most_viewed_mangas.first.summary }}
+                </p>
+            </div>
+            <p class="manga-author">
+                <strong>Author:</strong>
+                {{ most_viewed_mangas.first.author }}
+            </p>
+            <p class="manga-status">
+                <strong>Status:</strong>
+                {{ most_viewed_mangas.first.status }}
+            </p>
+        </div>
+        <div class="manga-image-slide-cover swiper swiper1">
+            <div class="swiper-wrapper">
+                {% for most_viewed_manga in most_viewed_mangas %}
+                <div
+                    id="most_viewed_manga_img"
+                    data-id="{{ most_viewed_manga.id }}"
+                    class="swiper-slide"
+                >
+                    <img src="{{ most_viewed_manga.cover.url }}" />
+                </div>
 
-{% block head %}
-    <link rel="stylesheet" href="{% static 'css/index.css'%}">
-{% endblock %}
+                {% endfor%}
+            </div>
+            <div class="swiper-pagination pag"></div>
+        </div>
+        {% endif %}
+    </div>
+</section>
 
-{% block main %}
+<section class="most-viewed-section">
+    <h2>Most Viewed</h2>
+    <div class="most-viewed-container swiper swiper2">
+        <div class="most-viewed-grid swiper-wrapper">
+            {% for most_viewed_manga in most_viewed_mangas %}
+            <div class="manga-card swiper-slide">
+                <img src="{{ most_viewed_manga.cover.url }}" />
+                <h3>
+                    <a href="{% url 'show-manga' most_viewed_manga.id %}"
+                        >{{ most_viewed_manga.title }}</a
+                    >
+                </h3>
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+</section>
+
+<section class="latest-section">
+    <h2>Latest</h2>
+    <div class="latest-grid">
+        {% for latest_manga in latest_mangas %}
+        <div class="manga-grid-item">
+            <img src="{{ latest_manga.cover.url }}" />
+            <div class="manga-grid-info">
+                <h3>
+                    <a href="{% url 'show-manga' latest_manga.id %}"
+                        >{{ latest_manga.title }}</a
+                    >
+                </h3>
+                {% for chapter in latest_manga.chapters.all %}
+                <p>Chapter {{ chapter.chapter_number }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% comment %}
 <div class="main-container">
     <div class="frontpage">
         <div class="frontpage-slide-container">
+            {%if most_viewed_mangas.first != None %}
             <div class="manga-info-container">
                 <div class="manga-info">
                     <div class="manga-text">
-                        <h2 class="manga-title"><a href="{% url 'show-manga' most_viewed_mangas.first.id %}">{{ most_viewed_mangas.first.title }}</a></h2>
+                        <h2 class="manga-title">
+                            <a
+                                href="{% url 'show-manga' most_viewed_mangas.first.id %}"
+                                >{{ most_viewed_mangas.first.title }}</a
+                            >
+                        </h2>
                         <div class="summary">
                             <p><strong>Summary</strong></p>
-                            <p class="manga-summary">{{ most_viewed_mangas.first.summary }}</p>
+                            <p class="manga-summary">
+                                {{ most_viewed_mangas.first.summary }}
+                            </p>
                         </div>
-                        <p class="manga-author"><strong>Author:</strong> {{ most_viewed_mangas.first.author }}</p>
-                        <p class="manga-status"><strong>Status:</strong> {{ most_viewed_mangas.first.status }}</p>
+                        <p class="manga-author">
+                            <strong>Author:</strong>
+                            {{ most_viewed_mangas.first.author }}
+                        </p>
+                        <p class="manga-status">
+                            <strong>Status:</strong>
+                            {{ most_viewed_mangas.first.status }}
+                        </p>
                     </div>
-                    <div style="position: static !important; display: none;" class="swiper-pagination pag"></div>
+                    <div
+                        style="position: static !important; display: none"
+                        class="swiper-pagination pag"
+                    ></div>
                 </div>
             </div>
             <div class="manga-img swiper swiper1">
                 <div class="swiper-wrapper">
                     {% for most_viewed_manga in most_viewed_mangas %}
-                        <div id="most_viewed_manga-img" data-id="{{ most_viewed_manga.id }}" class="swiper-slide">
-                            <img src="{{ most_viewed_manga.cover.url }}">
-                        </div>
+                    <div
+                        id="most_viewed_manga-img"
+                        data-id="{{ most_viewed_manga.id }}"
+                        class="swiper-slide"
+                    >
+                        <img src="{{ most_viewed_manga.cover.url }}" />
+                    </div>
                     {% endfor%}
                 </div>
             </div>
+            {% endif %}
         </div>
     </div>
     <div class="downpage">
@@ -41,12 +141,17 @@
                 <div class="slide-manga-container swiper swiper2">
                     <div class="slide-mangas swiper-wrapper">
                         {% for most_viewed_manga in most_viewed_mangas %}
-                            <div class="slide-manga swiper-slide">
-                                <div class="slide-manga-img">
-                                    <img src="{{ most_viewed_manga.cover.url }}">
-                                </div>
-                                <h3><a href="{% url 'show-manga' most_viewed_manga.id %}">{{ most_viewed_manga.title }}</a></h3>
+                        <div class="slide-manga swiper-slide">
+                            <div class="slide-manga-img">
+                                <img src="{{ most_viewed_manga.cover.url }}" />
                             </div>
+                            <h3>
+                                <a
+                                    href="{% url 'show-manga' most_viewed_manga.id %}"
+                                    >{{ most_viewed_manga.title }}</a
+                                >
+                            </h3>
+                        </div>
                         {% endfor%}
                     </div>
                 </div>
@@ -58,10 +163,15 @@
                         {% for latest_manga in latest_mangas %}
                         <div class="manga-grid-item">
                             <div class="manga-grid-image">
-                                <img src="{{ latest_manga.cover.url }}">
+                                <img src="{{ latest_manga.cover.url }}" />
                             </div>
                             <div class="manga-grid-info">
-                                <h3><a href="{% url 'show-manga' latest_manga.id %}">{{ latest_manga.title }}</a></h3>
+                                <h3>
+                                    <a
+                                        href="{% url 'show-manga' latest_manga.id %}"
+                                        >{{ latest_manga.title }}</a
+                                    >
+                                </h3>
                                 {% for chapter in latest_manga.chapters.all %}
                                 <p>Chapter {{ chapter.chapter_number }}</p>
                                 {% endfor %}
@@ -73,7 +183,8 @@
             </div>
         </div>
     </div>
-
-    <script src="{% static 'js/index.js' %}"></script>
 </div>
+{% endcomment %}
+
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock %}
