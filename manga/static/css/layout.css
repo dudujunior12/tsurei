@@ -108,7 +108,7 @@ body {
 .secondary-nav {
     font-size: 1.8rem;
     display: flex;
-    gap: 2.4rem;
+    gap: 1.2rem;
     align-items: center;
     justify-content: center;
 }
@@ -162,6 +162,7 @@ body {
     outline: none;
     cursor: pointer;
     z-index: 1;
+    font-size: 1.8rem;
 }
 
 /* Footer */
