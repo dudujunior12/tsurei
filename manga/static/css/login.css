@@ -1,65 +1,64 @@
-a{
+a {
     text-decoration: none;
-    color: lightgray;
+    color: white;
 }
 
-.main-container{
+.section-login {
     display: flex;
     justify-content: center;
-    height: 100%;
-    width: 100%;
+    margin-top: 9.6rem;
 }
 
-.login-container{
+.login-container {
     height: auto;
-    margin-top: 4%;
-    margin-bottom: 4%;
     width: 50%;
-    background-color: #047AED;
-    color: white;
+    background-color: #d3b2f3;
+    color: #343a40;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.login-container h1{
+.login-container h1 {
     margin-bottom: 6%;
     margin-left: 4%;
+    font-size: 2.8rem;
 }
 
-.login{
+.login {
     margin: 5%;
 }
 
-.login form{
+.login form {
     margin: 0 5%;
 }
 
-.field{
+.field {
     display: flex;
     flex-direction: column;
 }
 
-.field input{
+.field input {
     font-size: 18px;
     margin-bottom: 4%;
     padding: 10px 10px;
     outline: none;
-    background-color: #E3E3E3;
+    background-color: #e3e3e3;
     border: 1px solid black;
     border-radius: 3px;
 }
 
-.field label{
+.field label {
     font-size: 19px;
     margin-bottom: 2%;
+    color: white;
 }
 
-.login-container button{
+.login-container button {
     margin-top: 2%;
     outline: none;
     font-size: 18px;
     border: none;
-    background-color: #002240;
+    background-color: #913fe2;
     width: 100%;
     padding: 10px 20px;
     color: white;
@@ -68,7 +67,8 @@ a{
     cursor: pointer;
 }
 
-.login form p{
+.login form p {
     padding-top: 2%;
     text-align: center;
+    font-size: 1.4rem;
 }

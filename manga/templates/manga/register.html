@@ -1,28 +1,25 @@
-{% extends 'manga/layout.html' %}
-{% load static %}
-
-{% block head %}
-<link rel="stylesheet" href="{% static 'css/register.css'%}">
-{% endblock %}
-
-{% block main %}
-<div class="main-container">
+{% extends 'manga/layout.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/register.css'%}" />
+{% endblock %} {% block main %}
+<section class="section-register">
     <div class="register-container">
         <div class="register">
             <h1>Create Account</h1>
             <form method="POST">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="field">
-                        <label>{{field.label}}</label>
-                        {{field}}
-                    </div>
+                {% csrf_token %} {% for field in form %}
+                <div class="field">
+                    <label>{{field.label}}</label>
+                    {{field}}
+                </div>
                 {% endfor %}
                 <button type="submit">REGISTER</button>
-                <p>Already has an account? <a href="{% url 'login' %}">Sign in</a></p>
+                <p>
+                    Already has an account?
+                    <a href="{% url 'login' %}">Sign in</a>
+                </p>
                 <p><a href="#">Forgot password?</a></p>
             </form>
         </div>
     </div>
-</div>
+</section>
 {% endblock %}
