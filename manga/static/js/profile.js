@@ -17,27 +17,3 @@ var swiper2 = new Swiper(".swiper2", {
         clickable: true,
     },
 });
-
-document.addEventListener("DOMContentLoaded", function(){
-    document.querySelector('.btn-follow').onclick = function(){
-        fetch(window.location.pathname + '/follow', {
-            method: "POST",
-            body: JSON.stringify({
-                "follow": this.innerHTML
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if(data['follow'] == "Follow"){
-                this.innerHTML = data['follow'];
-            }
-            else{
-                this.innerHTML = data['follow'];
-            }
-        })
-        .catch(error => {
-            console.log("Error: " + error);
-        })
-    };
-});

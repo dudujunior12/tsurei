@@ -1,31 +1,33 @@
-.main-container{
+.section-chapter {
+    margin-top: 9.6rem;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    background-color: #d3b2f3;
 }
 
-.chapter-container{
-    background-color: #047AED;
+.chapter-container {
     margin-top: 2%;
-    width: 55%;
     border-radius: 5px;
-    margin-bottom: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 160rem;
+    margin: 0 auto;
 }
 
-.chapter-container h2{
+.chapter-container h2 {
     padding: 5%;
+    font-size: 3.6rem;
+    color: #343a40;
 }
 
-.chapter{
-    height: auto;
-    margin: 5%;
+.chapter {
+    width: 55%;
+    margin-bottom: 6.4rem;
 }
 
-.chapter img{
+.chapter img {
     height: 100%;
+    width: 100%;
     max-width: 100%;
 }
