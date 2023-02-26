@@ -108,7 +108,6 @@ body {
 .secondary-nav {
     font-size: 1.8rem;
     display: flex;
-    gap: 1.2rem;
     align-items: center;
     justify-content: center;
 }
@@ -119,6 +118,7 @@ body {
     text-decoration: none;
     font-size: 1.8rem;
     color: #343a40;
+    margin-left: 1rem;
 }
 
 .secondary-nav-link:hover,

@@ -30,10 +30,26 @@
             />
             <nav class="main-nav">
                 <ul class="main-nav-list">
-                    <li><a class="main-nav-link" href="#">Home</a></li>
-                    <li><a class="main-nav-link" href="#">Bookmarks</a></li>
-                    <li><a class="main-nav-link" href="#">Latest</a></li>
-                    <li><a class="main-nav-link" href="#">Categories</a></li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'index' %}"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'bookmarks' %}"
+                            >Bookmarks</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'latest' %}"
+                            >Latest</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'categories' %}"
+                            >Categories</a
+                        >
+                    </li>
                 </ul>
             </nav>
             <div class="secondary-nav">
@@ -44,11 +60,20 @@
                         </button>
                     </form>
                 </div>
+                {% if request.user.is_authenticated %}
                 <a
                     class="secondary-nav-link"
                     href="{% url 'profile' request.user.username %}"
                     ><i class="fas fa-user"></i
                 ></a>
+                <a class="secondary-nav-link" href="{% url 'logout' %}"
+                    ><i class="fas fa-sign-out-alt"></i>
+                </a>
+                {% else %}
+                <a class="secondary-nav-link" href="{% url 'login'%}"
+                    ><i class="fas fa-user"></i
+                ></a>
+                {% endif %}
             </div>
         </header>
         <div class="main">{% block main %} {% endblock %}</div>
@@ -77,10 +102,26 @@
             <nav class="footer-nav">
                 <h2>Navigation</h2>
                 <ul class="footer-nav-list">
-                    <li><a class="footer-nav-link" href="#">Home</a></li>
-                    <li><a class="footer-nav-link" href="#">Home</a></li>
-                    <li><a class="footer-nav-link" href="#">Home</a></li>
-                    <li><a class="footer-nav-link" href="#">Home</a></li>
+                    <li>
+                        <a class="footer-nav-link" href="% url 'index' %}"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a class="footer-nav-link" href="{% url 'bookmarks' %}"
+                            >Bookmarks</a
+                        >
+                    </li>
+                    <li>
+                        <a class="footer-nav-link" href="{% url 'latest' %}"
+                            >Latest</a
+                        >
+                    </li>
+                    <li>
+                        <a class="footer-nav-link" href="{% url 'categories' %}"
+                            >Categories</a
+                        >
+                    </li>
                 </ul>
             </nav>
             <div class="contact">
