@@ -7,12 +7,13 @@
         <div class="manga-view-img">
             <img src="{{ manga.cover.url }}" alt="Manga Cover" />
         </div>
-        <div class="manga-view-info">
+        <div class="manga-view-info" data-id="{{ manga.id }}">
             <h2>{{ manga.title }}</h2>
             <p><strong>Summary</strong></p>
             <p>{{ manga.summary }}</p>
             <p><strong>Author:</strong> {{ manga.author }}</p>
             <p><strong>Status:</strong> Releasing</p>
+            <button class="btn-bookmark">Bookmark</button>
         </div>
     </div>
 </section>

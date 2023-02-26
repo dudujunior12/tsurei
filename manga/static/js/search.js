@@ -10,11 +10,8 @@ function addFunctionEvent() {
             input.type = "text";
             search_box.appendChild(input);
         }
-        console.log(1);
         if (search_box.childElementCount == 2) {
-            console.log(2);
             if (child.tagName == "BUTTON") {
-                console.log(3);
                 child.addEventListener("click", function () {
                     toggleBF();
                 });
