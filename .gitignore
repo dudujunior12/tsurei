@@ -10,6 +10,9 @@ migrations
 # Backup files # 
 *.bak 
 
+# Manga covers and chapters
+manga/static/images/mangas
+
 # If you are using PyCharm # 
 # User-specific stuff
 .idea/**/workspace.xml
