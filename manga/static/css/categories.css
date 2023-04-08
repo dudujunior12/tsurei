@@ -26,6 +26,15 @@
     width: 120rem;
 }
 
+.genre-grid-item a {
+    text-decoration: none;
+    color: #343a40;
+}
+
+.genre-grid-item a:hover{
+    color: #d3b2f3;
+}
+
 .genre-grid-item span{
     font-size: 1.4rem;
 }

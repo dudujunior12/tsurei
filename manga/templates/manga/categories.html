@@ -12,29 +12,13 @@
 
         <div class="genre-grid">
             <div class="genre-grid-item">
-                <span><a href="{% url 'categories' %}">All</a></span>
+                <span><a href="{% url 'categories' category='All'%}">All</a></span>
             </div>
+            {% for category in categories %}
             <div class="genre-grid-item">
-                <span>Reincarnation</span>
+                <span><a href="{% url 'categories' category.category_name %}" >{{category.category_name}}</a> </span>
             </div>
-            <div class="genre-grid-item">
-                <span>Martial Arts</span>
-            </div>
-            <div class="genre-grid-item">
-                <span>Isekai</span>
-            </div>
-            <div class="genre-grid-item">
-                <span>Magic</span>
-            </div>
-            <div class="genre-grid-item">
-                <span>Action</span>
-            </div>
-            <div class="genre-grid-item">
-                <span>Adventure</span>
-            </div>
-            <div class="genre-grid-item">
-                <span>Demons</span>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

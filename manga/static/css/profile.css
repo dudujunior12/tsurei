@@ -29,6 +29,9 @@
     background-color: #d3b2f3;
     margin-top: 9.6rem;
     padding: 3.6rem 9.6rem;
+    min-height: 70vh;
+    max-height: auto;
+    width: 100%;
 }
 
 .bookmark-section h2{

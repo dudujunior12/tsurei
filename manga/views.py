@@ -2,9 +2,9 @@ from queue import Empty
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CreateUserForm, UploadMangaForm, CreateComment, CreateNewChapter
+from .forms import CreateUserForm, UploadMangaForm, CreateNewChapter
 from django.contrib.auth.forms import AuthenticationForm
-from .models import User, Manga, Chapter, Comment, Like, Bookmark, Follow
+from .models import User, Manga, Chapter, Category, Bookmark
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -40,34 +40,25 @@ def new_chapter(request, manga_id):
     else:
         return JsonResponse({"message_error": "Require POST request method"}, status=404)
 
-@login_required
-def bookmarks(request):
-    other_user = get_object_or_404(User, username=request.user.username)
-    bookmarked_mangas = get_bookmarked_mangas(other_user)
-    print(bookmarked_mangas)
-    return render(request, 'manga/bookmarks.html', {"bookmarked_mangas": bookmarked_mangas})
-
 def latest(request):
     latest_mangas = Manga.objects.filter().order_by("-posted_date")
     return render(request, 'manga/latest.html', {"latest_mangas": latest_mangas})
 
-def categories(request):
-    categories_mangas = Manga.objects.all()
-    return render(request, 'manga/categories.html', {"categories_mangas": categories_mangas})
+def categories(request, category):
+    categories = Category.objects.all()
+    if(category == "All"):
+        categories_mangas = Manga.objects.all()
+    else:
+        category = Category.objects.get(category_name=category).id
+        categories_mangas = Manga.objects.filter(category=category)
+    return render(request, 'manga/categories.html', {"categories_mangas": categories_mangas, "categories": categories})
 
 @login_required
 def profile(request, username):
-    mangas = Manga.objects.all()
-
     other_user = get_object_or_404(User, username=username)
-    created_mangas = get_created_mangas(other_user)
     bookmarked_mangas = get_bookmarked_mangas(other_user)
             
-    return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "created_mangas": created_mangas, "username": username})
-
-def get_created_mangas(other_user):
-    created_mangas = Manga.objects.filter(user=other_user)
-    return created_mangas
+    return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "username": username})
 
 def get_bookmarked_mangas(other_user):
     bookmarks = Bookmark.objects.filter(user=other_user)
@@ -155,53 +146,6 @@ def add_bookmark(request, manga_id):
 
     return JsonResponse({"message_error": "POST request required."})
 
-
-@login_required
-@csrf_exempt
-def like_comment(request, manga_id, comment_id):
-    if request.method == "POST":
-        comment = Comment.objects.get(id=comment_id)
-        like_filter = Like.objects.filter(user=request.user, comment=comment)
-        if like_filter:
-            like_filter.delete()
-            liked = False
-            return JsonResponse({"message": "Comment unliked successfully.", "liked": liked})
-
-        else:
-            like_obj = Like(user=request.user, comment=comment).save()
-            liked = True
-            return JsonResponse({"message": "Comment liked successfully.", "liked": liked})
-            
-    return JsonResponse({"message_error": "POST request required."})
-
-@login_required
-@csrf_exempt
-def edit_comment(request, manga_id, comment_id):
-    if request.method == "POST":
-        user = request.user
-        comment = get_object_or_404(Comment, id=comment_id, user=user)
-        data = json.loads(request.body)
-        if data.get("comment_text") is not None:
-            comment.comment_text = data["comment_text"]
-        comment.save()
-
-        return JsonResponse({"message": "Comment edited successfully.", "comment_text": comment.comment_text}, status=201)
-    else:
-        return JsonResponse({"message_error": "Require POST request method."}, status=404)
-
-@login_required
-def new_comment(request, id):
-    if request.method == "POST":
-        form = CreateComment(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.user = request.user
-            form.manga = get_object_or_404(Manga, id=id)
-            form.save()
-        return redirect("show-manga", id=id)
-    else:
-        return JsonResponse({"message_error": "Require POST request method"}, status=404)
-
 def show_manga(request, id):
     manga = get_object_or_404(Manga, id=id)
     print(manga.manga_views)
@@ -209,11 +153,9 @@ def show_manga(request, id):
     print(manga.manga_views)
     manga.save()
 
-    comment_form = CreateComment()
     new_chapter_form = CreateNewChapter()
 
     manga_chapters = Chapter.objects.filter(manga=manga)
-    comments = Comment.objects.filter(manga=manga).order_by("-posted_date")
     try:
         bookmark = Bookmark.objects.filter(user=request.user, manga=manga)
 
@@ -224,21 +166,11 @@ def show_manga(request, id):
     except:
         bookmarked = "Bookmark"
 
-    try:
-        liked_comments_id = []
-        for comment in comments:
-            liked_comments_id.append(Like.objects.get(user=request.user, comment=comment).comment.id)
-    except:
-        liked_comments_id = []
-
 
     return render(request, "manga/show_manga.html", {
         "manga": manga, 
         "manga_chapters": manga_chapters,
         "new_chapter_form": new_chapter_form,
-        "comment_form": comment_form, 
-        "comments": comments,
-        "liked_comments_id": liked_comments_id,
         "bookmarked": bookmarked,
     })
 
