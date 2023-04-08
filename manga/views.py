@@ -72,64 +72,6 @@ def get_bookmarked_mangas(other_user):
 
 @login_required
 @csrf_exempt
-def follow(request, username):
-    if request.method == "POST":
-        if request.user.username != username:
-            data = json.loads(request.body)
-            print(data["follow"])
-            user = request.user
-            other_user = get_object_or_404(User, username=username)
-
-            user_follow = Follow.objects.filter(user=user)
-            other_user_follow = Follow.objects.filter(user=other_user)
-
-            #FOLLOW
-            if data.get("follow") == "Follow":
-                if user_follow:
-                    print("User_FOLLOW:1")
-                    user_follow.first().following.add(other_user)
-                else:
-                    print("User_FOLLOW:2")
-                    user_follow = Follow.objects.create(user=user)
-                    user_follow.following.add(other_user)
-                    user_follow.save()
-
-                if other_user_follow:
-                    print("Other_User_FOLLOW:1")
-                    other_user_follow.first().followers.add(other_user)
-                else:
-                    print("Other_User_FOLLOW:2")
-                    other_user_follow = Follow.objects.create(user=other_user)
-                    other_user_follow.followers.add(user)
-                    other_user_follow.save()
-                return JsonResponse({"message": "Followed successfully.", "follow": "Unfollow"})
-            #UNFOLLOW
-            if data.get("follow") == "Unfollow":
-                if user_follow:
-                    print("User_UNFOLLOW:1")
-                    user_follow.first().following.remove(other_user)
-                else:
-                    print("User_UNFOLLOW:2")
-                    user_follow = Follow.objects.create(user=user)
-                    user_follow.save()
-
-                if other_user_follow:
-                    print("Other_User_UNFOLLOW:1")
-                    print(other_user_follow)
-                    other_user_follow.first().followers.remove(user)
-                    print(other_user_follow.first().followers.all().first())
-                else:
-                    print("Other_User_UNFOLLOW:2")
-                    other_user_follow = Follow.objects.create(user=other_user)
-                    other_user_follow.save()
-                return JsonResponse({"message": "Unfollowed successfully.", "follow": "Follow"})
-
-            return JsonResponse({"message_error": "Not Follow or Unfollow"})
-
-    return JsonResponse({"message_error": "POST request required."})
-
-@login_required
-@csrf_exempt
 def add_bookmark(request, manga_id):
     if request.method == "POST":
         manga = Manga.objects.get(id=manga_id)
