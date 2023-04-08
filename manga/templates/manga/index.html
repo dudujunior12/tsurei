@@ -50,13 +50,17 @@
     <div class="most-viewed-container swiper swiper2">
         <div class="most-viewed-grid swiper-wrapper">
             {% for most_viewed_manga in most_viewed_mangas %}
-            <div class="manga-card swiper-slide">
-                <img src="{{ most_viewed_manga.cover.url }}" />
-                <h3>
-                    <a href="{% url 'show-manga' most_viewed_manga.id %}"
-                        >{{ most_viewed_manga.title }}</a
-                    >
-                </h3>
+            <div class="manga-grid-item swiper-slide">
+                <div class="manga-grid-image">
+                    <img src="{{ most_viewed_manga.cover.url }}" />
+                </div>
+                <div class="manga-grid-info">
+                    <h3>
+                        <a href="{% url 'show-manga' most_viewed_manga.id %}"
+                            >{{ most_viewed_manga.title }}</a
+                        >
+                    </h3>
+                </div>
             </div>
             {% endfor%}
         </div>
@@ -67,9 +71,9 @@
     <h2>Latest</h2>
     <div class="latest-grid">
         {% for latest_manga in latest_mangas %}
-        <div class="manga-grid-item">
+        <div class="latest-grid-item">
             <img src="{{ latest_manga.cover.url }}" />
-            <div class="manga-grid-info">
+            <div class="latest-grid-info">
                 <h3>
                     <a href="{% url 'show-manga' latest_manga.id %}"
                         >{{ latest_manga.title }}</a

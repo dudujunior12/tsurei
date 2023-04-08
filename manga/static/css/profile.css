@@ -1,122 +1,80 @@
-.main-container{
-    margin-top: 4%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 4%;
-}
+/* *********************** */
+/* PROFILE SECTION */
+/* *********************** */
 
-.profile-container{
-    height: 30vh;
-    width: 80%;
-    background-color: #047AED;
+.profile-section {
+    margin-top: 9.6rem;
+    padding: 0 8.6rem;
 }
 
 .profile{
-    margin: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.top-info{
+.profile h2{
+    color: #343a40;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+
+/* *********************** */
+/* BOOKMARK SECTION */
+/* *********************** */
+
+.bookmark-section {
+    background-color: #d3b2f3;
+    margin-top: 9.6rem;
+    padding: 3.6rem 9.6rem;
+}
+
+.bookmark-section h2{
+    font-size: 2.4rem;
+
+}
+
+.bookmark-container{
+    padding: 3.6rem 0;
+}
+
+.manga-grid{
+    margin-top: 3.6rem;
+}
+
+.manga-grid-image {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.profile-img{
-    width: 124px;
-    height: 124px;
-}
-
-.profile-img img{
+.manga-grid-image img{
     width: 100%;
     height: 100%;
-    max-height: 100%;
-    max-width: 100%;
 }
 
-.info{
-    padding-top: 2%;
+.manga-grid-info {
+    padding: 1.2rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-}
 
-.top-info p{
-    font-size: 20px;
 }
-
-.top-info button{
-    outline: none;
-    border: none;
-    background-color: blue;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-left: 5%;
-    border-radius: 3px;
-    font-size: 16px;
+.manga-grid-info a{
+    text-decoration: none;
+    color: #343a40;
 }
-
-.down-info{
-    margin-top: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
-}
-
-.down-info p{
-    padding-left: 3%;
-}
-
-.slides-container{
-    margin-top: 1%;
-    height: auto;
-    width: 80%;
-    background-color: #047AED;
-}
-
-.slide-container{
-    margin-left: 2%;
-    margin-top: 2%;
-}
-
-.slide-container h2{
-    padding-bottom: 1%;
-}
-
-.slide-mangas{
-    min-height: 30vh;
-    max-height: 40vh;
-    height: 40vh;
-}
-
-.slide-manga{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.slide-manga-img{
-    height: 80%;
-}
-
-.slide-manga-img img{
+.manga-grid-image img {
+    height: 40rem;
     max-width: 100%;
     max-height: 100%;
-    width: 100%;
-    height: 100%;
     border-radius: 3px;
     display: block;
 }
 
-.slide-manga h3{
-    padding-top: 3%;
-    text-align: center;
+
+.manga-grid-item h3{
+    padding: 1.2rem 0;
+    font-size: 1.8rem;
 }
