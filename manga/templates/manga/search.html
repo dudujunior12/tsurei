@@ -1,0 +1,30 @@
+{% extends 'manga/layout.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/search.css'%}">
+{% endblock %}
+
+{% block main %}
+<setion class="search-section">
+    <div class="search-container">
+        <h2>Result for "{{ search_text }}"</h2>
+        <div class="manga-grid">
+            {% if result %}
+                {% for manga in result %}
+                <div class="manga-grid-item">
+                    <div class="manga-grid-image">
+                        <img src="{{ manga.cover.url }}">
+                    </div>
+                    <div class="manga-grid-info">
+                        <h3><a href="{% url 'show-manga' manga.id %}">{{ manga.title }}</a></h3>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <h3 class="error">{{ error }}</h3>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

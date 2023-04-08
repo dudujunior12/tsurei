@@ -6,8 +6,10 @@ function addFunctionEvent() {
     for (var child of search_box.children) {
         if (child.tagName != "INPUT") {
             var input = document.createElement("input");
+            var button = document.createElement("button");
             input.className = "input";
             input.type = "text";
+            input.name = "q"
             search_box.appendChild(input);
         }
         if (search_box.childElementCount == 2) {

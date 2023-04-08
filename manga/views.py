@@ -60,6 +60,22 @@ def profile(request, username):
             
     return render(request, "manga/profile.html", {"bookmarked_mangas": bookmarked_mangas, "username": username})
 
+def search(request):
+    if request.method == "GET":
+        search_text = request.GET['q']
+        mangas = Manga.objects.all()
+        result = []
+        for manga in mangas:
+            if search_text.lower() in manga.title.lower():
+                result.append(manga)
+            if search_text.lower() == manga.title.lower():
+                result.append(manga)
+        if len(result) > 0:
+            return render(request, "manga/search.html", {"search_text": search_text, "result": result})
+        else:
+            return render(request, "manga/search.html", {"search_text": search_text, "error": "There were no results matching the query"})
+    
+
 def get_bookmarked_mangas(other_user):
     bookmarks = Bookmark.objects.filter(user=other_user)
     print(bookmarks)
@@ -107,6 +123,9 @@ def show_manga(request, id):
             bookmarked = "Bookmark"
     except:
         bookmarked = "Bookmark"
+
+
+
 
 
     return render(request, "manga/show_manga.html", {

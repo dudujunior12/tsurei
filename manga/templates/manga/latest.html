@@ -17,14 +17,10 @@
                 </div>
                 <div class="manga-grid-info">
                     <h3><a href="{% url 'show-manga' latest_manga.id %}">{{ latest_manga.title }}</a></h3>
-                    {% for chapter in latest_manga.chapters.all %}
-                    <p>Chapter {{ chapter.chapter_number }}</p>
-                    {% endfor %}
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
 </section>
-<script src="{% static 'js/profile.js' %}"></script>
 {% endblock %}

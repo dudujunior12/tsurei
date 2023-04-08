@@ -33,7 +33,6 @@
                 </div>
                 <div class="manga-grid-info">
                     <h3><a href="{% url 'show-manga' categories_manga.id %}">{{ categories_manga.title }}</a></h3>
-                    <p>Chapter {{ categories_manga.chapters.first.chapter_number }}</p>
                 </div>
             </div>
             {% endfor %}

@@ -15,4 +15,5 @@ urlpatterns = [
     path('manga/<int:manga_id>/add-bookmark', views.add_bookmark, name="add-bookmark"),
     path('manga/<int:manga_id>/new-chapter', views.new_chapter, name="new-chapter"),
     path('manga/<int:manga_id>/chapter/<int:chapter_id>', views.manga_chapter, name="manga-chapter"),
+    path('search/', views.search, name="search")
 ]

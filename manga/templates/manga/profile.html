@@ -20,7 +20,7 @@
                 {% for bookmarked_manga in bookmarked_mangas %}
                     <div class="manga-grid-item swiper-slide">
                         <div class="manga-grid-image">
-                            <img src="{{ bookmarked_manga.cover.url }}">
+                            <img alt="manga-cover" src="{{ bookmarked_manga.cover.url }}">
                         </div>
                         <div class="manga-grid-info">
                             <h3><a href="{% url 'show-manga' bookmarked_manga.id%}">{{ bookmarked_manga.title }}</a></h3>
