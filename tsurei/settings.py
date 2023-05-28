@@ -94,7 +94,7 @@ AUTH_USER_MODEL = 'manga.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': env("DATABASE_NAME"),
         'USER': env("USER_NAME"),
         'PASSWORD': env("PASSWORD"),
