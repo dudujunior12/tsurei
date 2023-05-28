@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "backend/wsgi.py",
+            "src": "tsurei/wsgi.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
@@ -23,8 +23,8 @@
             "dest": "/static/$1"
         },
         {
-            "src": "/(.*)",
-            "dest": "backend/wsgi.py"
+            "src": "/(.*)", 
+            "dest": "tsurei/wsgi.py"
         }
     ],
     "rewrites": [{ "source": "/(.*)", "destination": "/" }]
