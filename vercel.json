@@ -27,5 +27,4 @@
             "dest": "tsurei/wsgi.py"
         }
     ],
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
