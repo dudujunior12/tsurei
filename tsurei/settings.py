@@ -91,18 +91,17 @@ AUTH_USER_MODEL = 'manga.User'
         #'NAME': BASE_DIR / 'db.sqlite3',
     #}
 #}
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": env("DATABASE_NAME"),
-        "USER": env("USER_NAME"),
-        "PASSWORD": env("PASSWORD"),
-        "HOST": env("HOST_ADDRESS"),
-        "PORT": env("PORT"),
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("USER_NAME"),
+        'PASSWORD': env("PASSWORD"),
+        'HOST': env("HOST_ADDRESS"),
+        'PORT': env("PORT"),
     }
 }
-
-
 
 
 # Password validation
