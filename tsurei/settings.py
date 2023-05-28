@@ -99,8 +99,7 @@ DATABASES = {
         "PASSWORD": env("PASSWORD"),
         "HOST": env("HOST_ADDRESS"),
         "PORT": env("PORT"),
-        },
-    },
+    }
 }
 
 
