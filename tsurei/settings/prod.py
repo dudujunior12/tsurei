@@ -22,3 +22,4 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
 
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build")
