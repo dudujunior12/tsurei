@@ -129,7 +129,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 
 MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'manga/static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'manga/static/images')
 
 LOGIN_URL = '/login/'
 
