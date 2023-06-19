@@ -7,9 +7,9 @@ from tsurei.settings import base
 def main():
     """Run administrative tasks."""
 
-    if base.DEBUG:
+    if base.DEBUG == "TRUE":
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tsurei.settings.dev')
-    elif not base.DEBUG:
+    else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tsurei.settings.prod')
 
     try:
