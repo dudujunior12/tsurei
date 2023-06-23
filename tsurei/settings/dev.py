@@ -22,3 +22,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#The absolute path where collectstatic will collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR, "static")

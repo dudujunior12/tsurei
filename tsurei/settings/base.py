@@ -111,9 +111,6 @@ USE_TZ = True
 #Folder where all statics are
 STATIC_URL = '/static/'
 
-#The absolute path where collectstatic will collect all static files
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
 #Get all user uploaded_files
 MEDIA_URL = '/images/'
 
