@@ -1,9 +1,21 @@
 from .base import *
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Application definition
+
+INSTALLED_APPS = [
+    'manga',
+    'cloudinary',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
 
 DATABASES = {
     'default': {
@@ -20,6 +32,3 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
-
-
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build")

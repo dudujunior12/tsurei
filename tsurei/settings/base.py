@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import dotenv
 import dj_database_url
-from decouple import config
 from pathlib import Path
-import cloudinary_storage
 import environ
+
+
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env()
@@ -38,22 +38,6 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
-
-
-# Application definition
-
-INSTALLED_APPS = [
-    'manga',
-    'cloudinary',
-    'cloudinary_storage',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,11 +108,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+#Folder where all statics are
 STATIC_URL = '/static/'
 
+#The absolute path where collectstatic will collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+#Get all user uploaded_files
 MEDIA_URL = '/images/'
+
+#Absolute filesystem path to the directory that will hold all user uploaded-files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'manga/static/images')
 
 LOGIN_URL = '/login/'
-
