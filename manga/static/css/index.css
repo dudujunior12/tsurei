@@ -10,6 +10,7 @@
 .hero {
     padding: 4.8rem 3.2rem;
     grid-template-columns: 1fr 0.5fr;
+    column-gap: 9.6rem; 
 }
 
 .manga-presentation-slide {
@@ -133,7 +134,7 @@
 }
 
 .latest-grid-info{
-    width: 60%;
+    width: 70%;
 }
 
 .latest-grid-info h3 {
