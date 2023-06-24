@@ -27,7 +27,7 @@ DATABASES['default'] = dj_database_url.config(default=env("POSTGRES_URL"))
 
 
 #The absolute path where collectstatic will collect all static files
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build")
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': env('CLOUD_NAME'),
