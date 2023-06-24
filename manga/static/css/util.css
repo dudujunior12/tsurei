@@ -1,29 +1,37 @@
-/* 5 GRID ALL */
-.manga-grid {
-    margin-top: 3.6rem;
-    width: 100%;
+/* GENERAL CSS */
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    column-gap: 3%;
-    row-gap: 3%;
 }
 
-.manga-grid-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.grid--2-cols{
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.manga-grid-image img{
-    width: 100%;
-    height: 100%;
+.grid--5-cols{
+    grid-template-columns: repeat(5, 1fr);
+}
+
+/* MANGA GRID STYLE */
+
+.manga-grid{
+    column-gap: 3.6rem;
+    row-gap: 3.6rem;
 }
 
 .manga-grid-info {
     padding: 1.2rem;
     display: flex;
     justify-content: center;
+}
 
+.manga-grid-info h3 {
+    font-size: 18px;
 }
 
 .manga-grid-info a{
@@ -31,19 +39,13 @@
     color: #343a40;
 }
 
-.manga-grid-info h3 {
-    font-size: 18px;
-    
+.manga-grid-img-box{
+    width: 100%;
 }
 
-.manga-grid-info p {
-    padding-bottom: 3%;
-}
-
-.manga-grid-image img {
+.manga-grid-img-box img{
+    width: 100%;
     height: 40rem;
-    max-width: 100%;
-    max-height: 100%;
     border-radius: 3px;
     display: block;
 }

@@ -48,14 +48,13 @@
     background-color: #d3b2f3;
 }
 
-.categories-container {
-    min-height: 70vh;
-    max-height: auto;
-    width: 160rem;
+.categories{
+    max-width: 160rem;
     margin: auto;
     padding: 3.6rem 0;
 }
 
-.categories-container h2 {
+.categories h2 {
     font-size: 2.4rem;
+    margin-bottom: 3.6rem;
 }

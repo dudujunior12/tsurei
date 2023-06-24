@@ -36,48 +36,8 @@
 
 .bookmark-section h2{
     font-size: 2.4rem;
-
 }
 
-.bookmark-container{
+.bookmark{
     padding: 3.6rem 0;
-}
-
-.manga-grid{
-    margin-top: 3.6rem;
-}
-
-.manga-grid-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.manga-grid-image img{
-    width: 100%;
-    height: 100%;
-}
-
-.manga-grid-info {
-    padding: 1.2rem;
-    display: flex;
-    justify-content: center;
-
-}
-.manga-grid-info a{
-    text-decoration: none;
-    color: #343a40;
-}
-.manga-grid-image img {
-    height: 40rem;
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 3px;
-    display: block;
-}
-
-
-.manga-grid-item h3{
-    padding: 1.2rem 0;
-    font-size: 1.8rem;
 }

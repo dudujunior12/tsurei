@@ -1,8 +1,9 @@
 {% extends 'manga/layout.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/index.css'%}" />
+<link rel="stylesheet" href="{%static 'css/util.css'%}" />
 {% endblock %} {% block main %}
 <section class="section-hero">
-    <div class="container">
+    <div class="hero container grid">
         {%if most_viewed_mangas.first != None %}
         <div class="manga-presentation-slide">
             <h2 class="manga-title">
@@ -47,7 +48,7 @@
 
 <section class="most-viewed-section">
     <h2>Most Viewed</h2>
-    <div class="most-viewed-container swiper swiper2">
+    <div class="most-viewed swiper swiper2">
         <div class="most-viewed-grid swiper-wrapper">
             {% for most_viewed_manga in most_viewed_mangas %}
             <div class="manga-grid-item swiper-slide">
@@ -69,10 +70,12 @@
 
 <section class="latest-section">
     <h2>Latest</h2>
-    <div class="latest-grid">
+    <div class="latest">
         {% for latest_manga in latest_mangas %}
         <div class="latest-grid-item">
-            <img src="{{ latest_manga.cover.url }}" />
+            <div class="latest-grid-img-box">
+                <img src="{{ latest_manga.cover.url }}" />
+            </div>
             <div class="latest-grid-info">
                 <h3>
                     <a href="{% url 'show-manga' latest_manga.id %}"

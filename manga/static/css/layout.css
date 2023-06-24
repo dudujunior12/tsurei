@@ -117,7 +117,14 @@ body {
     text-decoration: none;
     font-size: 1.8rem;
     color: #343a40;
-    margin-left: 1rem;
+}
+
+.secondary-nav a:nth-child(2){
+    margin-left: 0.5rem;
+}
+
+.secondary-nav a:not(:nth-child(2)){
+    margin-left: 1.2rem;
 }
 
 .secondary-nav-link:hover,

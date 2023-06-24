@@ -7,13 +7,9 @@
     background-color: #d3b2f3;
 }
 
-.container {
-    max-width: 130rem;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    gap: 9.6rem;
+.hero {
     padding: 4.8rem 3.2rem;
-    margin: auto;
+    grid-template-columns: 1fr 0.5fr;
 }
 
 .manga-presentation-slide {
@@ -43,15 +39,16 @@
 
 .manga-image-slide-cover {
     width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+    min-height: 0;
+    min-width: 0;
 }
 
 .manga-image-slide-cover img {
-    max-width: 100%;
-    max-height: 100%;
-    height: 100%;
-    border-radius: 3px;
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /* *********************** */
@@ -59,30 +56,19 @@
 /* *********************** */
 .most-viewed-section {
     margin-top: 9.6rem;
-    padding: 0 8.6rem;
+    padding: 0 8.6rem; 
 }
 
 .most-viewed-section h2 {
     font-size: 2.4rem;
 }
 
-.most-viewed-container{
+.most-viewed{
     padding: 3.6rem 0;
 }
 
 .manga-grid{
     margin-top: 3.6rem;
-}
-
-.manga-grid-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.manga-grid-image img{
-    width: 100%;
-    height: 100%;
 }
 
 .manga-grid-info {
@@ -96,9 +82,8 @@
     color: #343a40;
 }
 .manga-grid-image img {
+    width: 100%;
     height: 40rem;
-    max-width: 100%;
-    max-height: 100%;
     border-radius: 3px;
     display: block;
 }
@@ -120,7 +105,7 @@
     margin-left: 9.6rem;
 }
 
-.latest-grid {
+.latest{
     margin-top: 6.4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -134,19 +119,21 @@
     display: flex;
     gap: 1.6rem;
     padding: 0 2.4rem;
-    height: 42rem;
-    width: 62rem;
+}
+
+.latest-grid-img-box{
+    width: 100%;
 }
 
 .latest-grid-item img {
-    height: 100%;
-    width: 60%;
+    height: 45rem;
+    width: 100%;
     border-radius: 3px;
     display: block;
 }
 
 .latest-grid-info{
-    width: 40%;
+    width: 60%;
 }
 
 .latest-grid-info h3 {

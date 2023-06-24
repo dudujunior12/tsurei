@@ -24,12 +24,12 @@
     </div>
 </section>
 <section class="categories-section">
-    <div class="categories-container">
+    <div class="categories">
         <h2>Mangas</h2>
-        <div class="manga-grid">
+        <div class="manga-grid grid grid--5-cols">
             {% for categories_manga in categories_mangas %}
             <div class="manga-grid-item">
-                <div class="manga-grid-image">
+                <div class="manga-grid-img-box">
                     <img src="{{ categories_manga.cover.url }}">
                 </div>
                 <div class="manga-grid-info">
