@@ -1,12 +1,13 @@
 from .base import *
 
+import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
 # Application definition
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
@@ -35,3 +36,5 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 import dotenv
-import dj_database_url
 from pathlib import Path
 import environ
 
@@ -121,4 +120,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'manga/static/images')
 
 LOGIN_URL = '/login/'
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
