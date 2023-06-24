@@ -4,9 +4,12 @@ from .base import *
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'manga',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,9 +25,3 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-#Folder where all statics are
-STATIC_URL = '/static/'
-
-#The absolute path where collectstatic will collect all static files
-STATIC_ROOT = os.path.join(BASE_DIR, "static")

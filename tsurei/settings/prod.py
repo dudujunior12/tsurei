@@ -6,7 +6,10 @@ import cloudinary.api
 
 # Application definition
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']
+
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'manga',
     'cloudinary',
     'django.contrib.admin',
@@ -24,10 +27,6 @@ DATABASES = {
 }
 
 DATABASES['default'] = dj_database_url.config(default=env("POSTGRES_URL"))
-
-
-#The absolute path where collectstatic will collect all static files
-STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': env('CLOUD_NAME'),
