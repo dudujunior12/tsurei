@@ -108,9 +108,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-#Folder where all statics are
-STATIC_URL = '/static/'
-
 #Get all user uploaded_files
 MEDIA_URL = '/images/'
 
