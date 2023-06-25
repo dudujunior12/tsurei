@@ -42,12 +42,12 @@
 .btn-bookmark {
     padding: 1.2rem 2.4rem;
     border: none;
-    background-color: aqua;
+    background-color: #69db7c;
     cursor: pointer;
     border-radius: 3px;
     font-size: 1.8rem;
     color: white;
-    width: 25%;
+    width: 30%;
 }
 
 /* *********************** */

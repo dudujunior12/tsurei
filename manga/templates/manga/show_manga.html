@@ -12,8 +12,8 @@
             <p><strong>Summary</strong></p>
             <p>{{ manga.summary }}</p>
             <p><strong>Author:</strong> {{ manga.author }}</p>
-            <p><strong>Status:</strong> Releasing</p>
-            <button class="btn-bookmark">Bookmark</button>
+            <p><strong>Status:</strong> {{ manga.status }}</p>
+            <button class="btn-bookmark">{{ bookmarked }}</button>
         </div>
     </div>
 </section>

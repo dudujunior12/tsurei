@@ -27,6 +27,18 @@
     .website-td img{
         width: 40%;
     }
+
+    .manga-grid-image img {
+        height: 40rem !important;
+    }
+
+    .latest-grid-item img {
+        height: 45rem !important;
+    }
+
+    .manga-grid-img-box img{
+        height: 40rem !important;
+    }
 }
 
 /* Below 1344 px ( Small Laptops )  */

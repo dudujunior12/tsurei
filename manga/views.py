@@ -23,13 +23,11 @@ def index(request):
 def manga_chapter(request, manga_id, chapter_id):
     manga = get_object_or_404(Manga, id=manga_id)
     chapter = Chapter.objects.get(manga=manga, id=chapter_id)
-    print(chapter)
     return render(request, "manga/manga_chapter.html", {"chapter": chapter, "manga": manga})
 
 def new_chapter(request, manga_id):
     if request.method == "POST":
         form = CreateNewChapter(request.POST, request.FILES)
-        print(form)
         if form.is_valid():
             form = form.save(commit=False)
             form.manga = get_object_or_404(Manga, id=manga_id)
@@ -105,9 +103,7 @@ def add_bookmark(request, manga_id):
 
 def show_manga(request, id):
     manga = get_object_or_404(Manga, id=id)
-    print(manga.manga_views)
     manga.manga_views = manga.manga_views + 1
-    print(manga.manga_views)
     manga.save()
 
     new_chapter_form = CreateNewChapter()
@@ -122,10 +118,6 @@ def show_manga(request, id):
             bookmarked = "Bookmark"
     except:
         bookmarked = "Bookmark"
-
-
-
-
 
     return render(request, "manga/show_manga.html", {
         "manga": manga, 
@@ -151,7 +143,7 @@ def upload(request):
             manga.user = request.user
             manga.save()
         else:
-            print("MANGA ERRO")
+            print("Form Upload Error")
 
     return render(request, "manga/upload_manga.html", {"manga_form": manga_form})
 
