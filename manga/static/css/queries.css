@@ -248,14 +248,14 @@
 
     .hero{
         grid-template-columns: 1fr;
-        grid-template-rows: 50rem 1fr;
+        grid-template-rows: 60rem 1fr;
         row-gap: 1.8rem;
         max-width: 60rem;
     }
 
     .container{
         grid-template-columns: 1fr;
-        grid-template-rows: 50rem 1fr;
+        grid-template-rows: 60rem 1fr;
         row-gap: 1.8rem;
         max-width: 60rem !important;
     }
@@ -300,7 +300,7 @@
     }
 
     .manga-grid-img-box img{
-        height: 30rem !important;
+        height: 25rem !important;
     }
 
     /* Manga Chapter */
