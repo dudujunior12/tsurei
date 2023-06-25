@@ -11,7 +11,7 @@ a {
 
 .register-container {
     height: auto;
-    width: 50%;
+    width: 80%;
     background-color: #d3b2f3;
     color: #343a40;
     border-radius: 5px;
@@ -38,7 +38,7 @@ a {
 }
 
 .field input {
-    font-size: 18px;
+    font-size: 1.8rem;
     margin-bottom: 4%;
     padding: 10px 10px;
     outline: none;
@@ -48,20 +48,20 @@ a {
 }
 
 .field label {
-    font-size: 19px;
+    font-size: 1.9rem;
     margin-bottom: 2%;
 }
 
 .register-container button {
     margin-top: 2%;
     outline: none;
-    font-size: 18px;
+    font-size: 1.8rem;
     border: none;
     background-color: #913fe2;
     width: 100%;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     color: white;
-    border-radius: 3px;
+    border-radius: 0.3px;
     margin-bottom: 2%;
     cursor: pointer;
 }
