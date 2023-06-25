@@ -82,6 +82,11 @@
 
     .nav-open .icon-mobile-nav[name="close-icon"]{
         display: block;
+        display: none;
+    }
+
+    .nav-open .icon-mobile-nav[name="close-icon"]{
+        display: block;
     }
     
     .icon-mobile-nav[name="menu-icon"]{
