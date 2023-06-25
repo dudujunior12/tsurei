@@ -1,9 +1,10 @@
 {% extends 'manga/layout.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/index.css'%}" />
 <link rel="stylesheet" href="{%static 'css/util.css'%}" />
+<link rel="stylesheet" href="{% static 'css/queries.css' %}" />
 {% endblock %} {% block main %}
 <section class="section-hero">
-    <div class="hero container grid">
+    <div class="hero grid">
         {%if most_viewed_mangas.first != None %}
         <div class="manga-presentation-slide">
             <h2 class="manga-title">

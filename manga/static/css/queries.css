@@ -1,0 +1,74 @@
+/* Below 1344 px ( Small Laptops )  */
+
+@media(max-width: 84em){
+
+    .manga-title a{
+        font-size: 3.0rem;
+    }
+
+    .most-viewed{
+        max-width: 120rem;
+        
+    }
+
+    .manga-grid-image img {
+        height: 32rem;
+    }
+
+    .latest{
+        max-width: 120rem;
+    }
+
+    .latest-grid-item img {
+        height: 35rem;
+    }
+}
+
+/* Bellow 1.152 px ( Landscape Tablets ) */
+@media(max-width: 72em){
+    .manga-title a{
+        font-size: 2.4rem;
+    }
+
+    html {
+        /* 9px / 16px =  */
+        font-size: 56.25%;
+    }
+
+    .hero{
+        column-gap: 4.8rem;
+    }
+
+    .latest-grid-info h3{
+        font-size: 1.8rem;
+    }
+
+    .manga-grid-image img {
+        height: 28rem;
+    }
+}
+
+/* Bellow 912 px (Tablets ) */
+@media(max-width: 57em){
+    html{
+        font-size: 8px;
+    }
+
+    .manga-grid-image img {
+        height: 25rem;
+    }
+
+    .latest-grid-item img {
+        height: 30rem;
+    }
+
+    .icon-mobile-nav[name="close-icon"]{
+        /* display: block; */
+    }
+    
+    .icon-mobile-nav[name="menu-icon"]{
+        display: block;
+    }
+
+
+}

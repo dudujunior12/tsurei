@@ -5,6 +5,7 @@
         <title>Tsurei</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/queries.css' %}" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -63,6 +64,12 @@
                 ></a>
                 <a class="secondary-nav-link" href="{% url 'logout' %}"
                     ><i class="fas fa-sign-out-alt"></i>
+                </a>
+                <a class="secondary-nav-link" href="#"
+                    ><i class="icon-mobile-nav fas fa-bars" name="menu-icon" style="color: #000000;"></i>
+                </a>
+                <a class="secondary-nav-link" href="#"
+                    ><i class="icon-mobile-nav fas fa-times" name="close-icon" style="color: #000000;"></i>
                 </a>
                 {% else %}
                 <a class="secondary-nav-link" href="{% url 'login'%}"

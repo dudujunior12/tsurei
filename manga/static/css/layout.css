@@ -67,6 +67,15 @@ body {
     color: #343a40;
 }
 
+/* MOBILE */
+.icon-mobile-nav[name="close-icon"]{
+    display: none;
+}
+
+.icon-mobile-nav[name="menu-icon"]{
+    display: none;
+}
+
 /* *********************** */
 /* HEADER SECTION */
 /* *********************** */
