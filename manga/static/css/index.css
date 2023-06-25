@@ -56,11 +56,11 @@
 /* *********************** */
 /* MOST VIEWED SECTION */
 /* *********************** */
-.most-viewed-section {
+.section-most-viewed {
     margin-top: 9.6rem;
 }
 
-.most-viewed-section h2 {
+.section-most-viewed h2 {
     font-size: 2.4rem;
     margin-left: 9.6rem;
 }
@@ -98,11 +98,11 @@
 /* *********************** */
 /* LATEST SECTION */
 /* *********************** */
-.latest-section {
+.section-latest {
     margin-top: 6.4rem;
 }
 
-.latest-section h2 {
+.section-latest h2 {
     font-size: 2.4rem;
     margin-left: 9.6rem;
 }

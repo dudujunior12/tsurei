@@ -78,7 +78,6 @@ def search(request):
 
 def get_bookmarked_mangas(other_user):
     bookmarks = Bookmark.objects.filter(user=other_user)
-    print(bookmarks)
     bookmarked_mangas = []
     for bookmark in bookmarks:
         bookmarked_manga = Manga.objects.get(title=bookmark.manga.title)
