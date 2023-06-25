@@ -16,20 +16,20 @@
 <section class="bookmark-section">
     <h2>Bookmarked Mangas</h2>
     {% if bookmarked_mangas %}
-        <div class="bookmark swiper swiper1">
-            <div class="manga-grid swiper-wrapper">
-                {% for bookmarked_manga in bookmarked_mangas %}
-                    <div class="manga-grid-item swiper-slide">
-                        <div class="manga-grid-img-box">
-                            <img alt="manga-cover" src="{{ bookmarked_manga.cover.url }}">
-                        </div>
-                        <div class="manga-grid-info">
-                            <h3><a href="{% url 'show-manga' bookmarked_manga.id%}">{{ bookmarked_manga.title }}</a></h3>
-                        </div>
+    <div class="bookmark swiper swiper1">
+        <div class="swiper-wrapper">
+            {% for bookmarked_manga in bookmarked_mangas %}
+                <div class="manga-grid-item swiper-slide">
+                    <div class="manga-grid-img-box">
+                        <img alt="manga-cover" src="{{ bookmarked_manga.cover.url }}">
                     </div>
-                {% endfor%}
-            </div>
+                    <div class="manga-grid-info">
+                        <h3><a href="{% url 'show-manga' bookmarked_manga.id%}">{{ bookmarked_manga.title }}</a></h3>
+                    </div>
+                </div>
+            {% endfor%}
         </div>
+    </div>
     {% endif %}
 </section>
 <script src="{% static 'js/profile.js' %}"></script>

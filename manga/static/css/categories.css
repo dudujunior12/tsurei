@@ -7,11 +7,12 @@
     border: 1px solid black;
 }
 
-.filter-container{
-    width: 180rem;
-    margin: 2rem auto;
-}
 
+.filter-container{
+    max-width: 180rem;
+    margin: 0 auto;
+    padding: 3.2rem 4.6rem;
+}
 
 .filter-container p{
     font-size: 1.6rem;
@@ -23,7 +24,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 1.2rem;
-    width: 120rem;
 }
 
 .genre-grid-item a {
@@ -48,13 +48,15 @@
     background-color: #d3b2f3;
 }
 
-.categories{
-    max-width: 160rem;
-    margin: auto;
-    padding: 3.6rem 0;
+.categories-section h2 {
+    font-size: 2.4rem;
+    padding: 3.2rem 4.6rem;
 }
 
-.categories h2 {
-    font-size: 2.4rem;
-    margin-bottom: 3.6rem;
+
+.categories{
+    max-width: 180rem;
+    margin: 0 auto;
+    padding: 3.2rem 4.6rem;
 }
+

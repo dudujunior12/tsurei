@@ -146,6 +146,14 @@ body {
     position: relative;
 }
 
+.btn-mobile-nav{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    margin-left: 1.8rem;
+}
+
 .input {
     background: none;
     border: 1px solid #343a40;

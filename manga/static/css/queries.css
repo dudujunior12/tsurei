@@ -22,6 +22,10 @@
     .latest-grid-item img {
         height: 35rem;
     }
+
+    .manga-grid-img-box img{
+        height: 35rem;
+    }
 }
 
 /* Bellow 1.152 px ( Landscape Tablets ) */
@@ -43,8 +47,17 @@
         font-size: 1.8rem;
     }
 
+    .manga-grid{
+        column-gap: 1.2rem;
+    }
+
     .manga-grid-image img {
         height: 28rem;
+    }
+
+    /* Filter Categories */
+    .genre-grid{
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
@@ -62,6 +75,7 @@
         height: 30rem;
     }
 
+    /* Menu Mobile Navigation */
     .icon-mobile-nav[name="close-icon"]{
         display: none;
     }
@@ -85,7 +99,7 @@
         left: 0;
         width: 100%;
         height: 100vh;
-        transform: translateX(100%);
+        /* transform: translateX(100%); */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -116,9 +130,11 @@
         opacity: 1;
         pointer-events: auto;
         visibility: visible;
-        transform: translateX(0);
+        /* transform: translateX(0); */
     }
 
+
+    /* One Column Hero */
     .hero{
         grid-template-columns: 1fr;
         grid-template-rows: 60rem 1fr;
@@ -128,6 +144,11 @@
 
     .manga-image-slide-cover{
         grid-row: 1;
+    }
+
+    /* Shared Manga Grid */
+    .manga-grid-img-box img{
+        height: 25rem;
     }
 
 }
@@ -146,11 +167,17 @@
         height: 40rem;
     }
 
-    .manga-grid-image img {
-        height: 35rem;
+    /* Shared Manga Grid */
+    .manga-grid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .manga-grid-img-box img{
+        height: 25rem;
     }
 }
 
+ /* Bellow  544 px (Mobile Phones ) */
 @media(max-width: 34em){
     html{
         font-size: 6px;
@@ -175,5 +202,15 @@
 
     .contact{
         grid-row: 1;
+    }
+
+
+    /* Shared Manga Grid */
+    .manga-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .manga-grid-img-box img{
+        height: 30rem;
     }
 }

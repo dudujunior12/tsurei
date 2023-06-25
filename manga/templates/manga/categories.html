@@ -10,7 +10,6 @@
 <section class="filter-section">
     <div class="filter-container">
         <p>Filter</p>
-
         <div class="genre-grid">
             <div class="genre-grid-item">
                 <span><a href="{% url 'categories' category='All'%}">All</a></span>
@@ -24,9 +23,9 @@
     </div>
 </section>
 <section class="categories-section">
+    <h2>Mangas</h2>
     <div class="categories">
-        <h2>Mangas</h2>
-        <div class="manga-grid grid grid--5-cols">
+        <div class="manga-grid grid">
             {% for categories_manga in categories_mangas %}
             <div class="manga-grid-item">
                 <div class="manga-grid-img-box">

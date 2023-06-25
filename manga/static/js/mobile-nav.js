@@ -1,5 +1,12 @@
 // Set current year
-const yearEl = document.querySelector(".year");
-console.log(yearEl);
+const year = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
-yearEl.textContent = currentYear;
+year.textContent = currentYear;
+
+
+const btnNav = document.querySelector('.btn-mobile-nav');
+const header = document.querySelector('.header');
+
+btnNav.addEventListener('click', function(){
+    header.classList.toggle('nav-open');
+})
