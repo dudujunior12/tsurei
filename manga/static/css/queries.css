@@ -187,6 +187,17 @@
     .manga-grid-img-box img{
         height: 25rem;
     }
+
+    /* Show Chapter */
+
+    .chapter {
+        width: 80%;
+        margin-bottom: 6.4rem;
+    }
+
+    .chapter-container h2{
+        font-size: 3.2rem;
+    }
 }
 
  /* Bellow  544 px (Mobile Phones ) */
@@ -224,4 +235,12 @@
     .manga-grid-img-box img{
         height: 30rem;
     }
+
+    /* Manga Chapter */
+
+    .chapter-container h2{
+        font-size: 3.0rem;
+    }
+
+
 }

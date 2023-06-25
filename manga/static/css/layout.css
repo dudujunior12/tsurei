@@ -66,6 +66,7 @@ html {
 
 body {
     color: #343a40;
+    scroll-behavior: smooth;
 }
 
 /* MOBILE */

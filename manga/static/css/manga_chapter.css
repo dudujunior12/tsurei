@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 160rem;
+    max-width: 160rem;
     margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .chapter {
-    width: 55%;
+    width: 50%;
     margin-bottom: 6.4rem;
 }
 
