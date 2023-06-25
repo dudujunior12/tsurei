@@ -291,3 +291,17 @@ footer h2 {
     gap: 1.6rem;
     font-size: 1.6rem;
 }
+
+.contact a:link,
+.contact a:visited {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: #d1d4d7;
+}
+
+.contact a:hover,
+.contact a:active {
+    color: #913fe2;
+}
