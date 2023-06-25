@@ -61,6 +61,7 @@ Default: 9px
 
 html {
     font-size: 62.5%;
+    overflow-x: hidden;
 }
 
 body {
@@ -181,29 +182,40 @@ body {
 }
 
 /* Footer */
-.footer {
+.footer-section {
     margin-top: 9.6rem;
-    height: 25vh;
     background-color: #343a40;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
     font-size: 1.4rem;
-    padding: 0 6.4rem;
+    padding: 4.8rem 0;
     color: #d1d4d7;
+}
+
+.footer{
+    max-width: 120rem;
+    margin: 0 auto;
+    justify-content: center;
+    column-gap: 9.6rem;
+    padding: 0 3.2rem;
+}
+
+.grid-footer{
+    grid-template-columns: 1.3fr 1fr 1fr;
 }
 
 .website-td {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-    justify-content: center;
+}
+
+.website-td img{
+    width: 50%;
 }
 
 .social {
     display: flex;
     gap: 1.6rem;
-    align-self: center;
     padding-top: 1.6rem;
 }
 

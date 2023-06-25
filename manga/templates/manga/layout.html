@@ -24,7 +24,7 @@
         {% block head %} {% endblock%}
     </head>
     <body>
-        <header class="header">
+        <header class="header nav-open">
             <a href="{% url 'index' %}"><img
                 src="{% static 'images/logo.png' %}"
                 alt="Website Logo Tsurei"
@@ -65,69 +65,74 @@
                 <a class="secondary-nav-link" href="{% url 'logout' %}"
                     ><i class="fas fa-sign-out-alt"></i>
                 </a>
+                {% else %}
+                <a class="secondary-nav-link" href="{% url 'login'%}"
+                    ><i class="fas fa-user"></i
+                ></a>
+                {% endif %}
                 <a class="secondary-nav-link" href="#"
                     ><i class="icon-mobile-nav fas fa-bars" name="menu-icon" style="color: #000000;"></i>
                 </a>
                 <a class="secondary-nav-link" href="#"
                     ><i class="icon-mobile-nav fas fa-times" name="close-icon" style="color: #000000;"></i>
                 </a>
-                {% else %}
-                <a class="secondary-nav-link" href="{% url 'login'%}"
-                    ><i class="fas fa-user"></i
-                ></a>
-                {% endif %}
             </div>
         </header>
         <div class="main">{% block main %} {% endblock %}</div>
-        <footer class="footer">
-            <div class="website-td">
-                <img
-                    src="{% static 'images/logo.png' %}"
-                    alt="Website Logo Tsurei"
-                />
-                <div class="social">
-                    <a class="social-link" href="#"
-                        ><i class="fab fa-github fa-2x"></i
-                    ></a>
-                    <a class="social-link" href="#"
-                        ><i class="fab fa-facebook fa-2x"></i
-                    ></a>
-                    <a class="social-link" href="#"
-                        ><i class="fab fa-instagram fa-2x"></i
-                    ></a>
-                    <a class="social-link" href="#"
-                        ><i class="fab fa-twitter fa-2x"></i
-                    ></a>
+        <footer class="footer-section">
+            <div class="footer grid grid-footer">
+                <div class="website-td">
+                    <img
+                        src="{% static 'images/logo.png' %}"
+                        alt="Website Logo Tsurei"
+                    />
+                    <div class="social">
+                        <a class="social-link" href="#"
+                            ><i class="fab fa-github fa-2x"></i
+                        ></a>
+                        <a class="social-link" href="#"
+                            ><i class="fab fa-facebook fa-2x"></i
+                        ></a>
+                        <a class="social-link" href="#"
+                            ><i class="fab fa-instagram fa-2x"></i
+                        ></a>
+                        <a class="social-link" href="#"
+                            ><i class="fab fa-twitter fa-2x"></i
+                        ></a>
+                    </div>
+                    <p>Copyright &copy; <span class="year">2023</span></p>
                 </div>
-                <p>Copyright &copy; 2023</p>
-            </div>
-            <nav class="footer-nav">
-                <h2>Navigation</h2>
-                <ul class="footer-nav-list">
-                    <li>
-                        <a class="footer-nav-link" href="{% url 'index' %}"
-                            >Home</a
-                        >
-                    </li>
-                    <li>
-                        <a class="footer-nav-link" href="{% url 'latest' %}"
-                            >Latest</a
-                        >
-                    </li>
-                    <li>
-                        <a class="footer-nav-link" href="{% url 'categories' category='All' %}"
-                            >Categories</a
-                        >
-                    </li>
-                </ul>
-            </nav>
-            <div class="contact">
-                <h2>Contact</h2>
-                <p>Street lorem, 374</p>
-                <p>US - L.A</p>
-                <p>00000000000</p>
+                <nav class="footer-nav">
+                    <h2>Navigation</h2>
+                    <ul class="footer-nav-list">
+                        <li>
+                            <a class="footer-nav-link" href="{% url 'index' %}"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a class="footer-nav-link" href="{% url 'latest' %}"
+                                >Latest</a
+                            >
+                        </li>
+                        <li>
+                            <a class="footer-nav-link" href="{% url 'categories' category='All' %}"
+                                >Categories</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <div class="contact">
+                    <h2>Contact</h2>
+                    <address>
+                        <p>Street lorem, 374</p>
+                        <p>US - L.A</p>
+                        <p>00000000000</p>
+                    </address> 
+                </div>
             </div>
         </footer>
         <script src="{% static 'js/search.js'%}"></script>
+        <script src="{% static 'js/mobile-nav.js'%}"></script>
     </body>
 </html>

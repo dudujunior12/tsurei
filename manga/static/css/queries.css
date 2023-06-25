@@ -63,12 +63,117 @@
     }
 
     .icon-mobile-nav[name="close-icon"]{
-        /* display: block; */
+        display: none;
+    }
+
+    .nav-open .icon-mobile-nav[name="close-icon"]{
+        display: block;
     }
     
     .icon-mobile-nav[name="menu-icon"]{
         display: block;
     }
 
+    .nav-open .icon-mobile-nav[name="menu-icon"]{
+        display: none;
+    }
 
+    .main-nav{
+        background-color: rgba(255, 255, 255, 0.90);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        transform: translateX(100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: all 0.5s ease-in;
+
+        /* Hide nav */
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    .main-nav-list{
+        flex-direction: column;
+        gap: 4.8rem;
+    }
+
+    .main-nav-link:link, 
+    .main-nav-link:visited{
+        font-size: 3rem;
+    }
+
+    .secondary-nav{
+        z-index: 99999;
+    }
+
+    .nav-open .main-nav{
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .hero{
+        grid-template-columns: 1fr;
+        grid-template-rows: 60rem 1fr;
+        row-gap: 1.8rem;
+        max-width: 60rem;
+    }
+
+    .manga-image-slide-cover{
+        grid-row: 1;
+    }
+
+}
+
+ /* Bellow 736 px (Smaller Tablets ) */
+@media(max-width: 46em){
+    .latest{
+        grid-template-columns: 1fr;
+    }
+
+    .latest-grid-info{
+        width: 95%;
+    }
+
+    .latest-grid-item img{
+        height: 40rem;
+    }
+
+    .manga-grid-image img {
+        height: 35rem;
+    }
+}
+
+@media(max-width: 34em){
+    html{
+        font-size: 6px;
+    }
+
+    .header{
+        padding: 0 2.4rem;
+    }
+
+    .manga-grid-image img {
+        height: 30rem;
+    }
+
+    .grid-footer{
+        grid-template-columns: repeat(2, 1fr);;
+        row-gap: 4.8rem;
+    }
+
+    .footer-nav{
+        grid-row: 1;
+    }
+
+    .contact{
+        grid-row: 1;
+    }
 }
