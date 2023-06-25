@@ -12,7 +12,7 @@
     }
 
     .manga-grid-image img {
-        height: 32rem;
+        height: 32rem !important;
     }
 
     .latest{
@@ -20,11 +20,11 @@
     }
 
     .latest-grid-item img {
-        height: 35rem;
+        height: 35rem !important;
     }
 
     .manga-grid-img-box img{
-        height: 35rem;
+        height: 35rem !important;
     }
 }
 
@@ -52,7 +52,7 @@
     }
 
     .manga-grid-image img {
-        height: 28rem;
+        height: 28rem !important;
     }
 
     /* Filter Categories */
@@ -68,11 +68,11 @@
     }
 
     .manga-grid-image img {
-        height: 25rem;
+        height: 25rem !important;
     }
 
     .latest-grid-item img {
-        height: 30rem;
+        height: 30rem !important;
     }
 
     /* Menu Mobile Navigation */
@@ -160,7 +160,12 @@
 
     /* Shared Manga Grid */
     .manga-grid-img-box img{
-        height: 25rem;
+        height: 25rem !important;
+    }
+
+    .header a img{
+        height: 4rem;
+        width: 100%;
     }
 
 }
@@ -176,7 +181,7 @@
     }
 
     .latest-grid-item img{
-        height: 40rem;
+        height: 40rem !important;
     }
 
     /* Shared Manga Grid */
@@ -185,18 +190,37 @@
     }
 
     .manga-grid-img-box img{
-        height: 25rem;
+        height: 25rem !important;
     }
 
     /* Show Chapter */
 
     .chapter {
-        width: 80%;
+        width: 100%;
         margin-bottom: 6.4rem;
     }
 
     .chapter-container h2{
-        font-size: 3.2rem;
+        font-size: 2.4rem;
+    }
+
+    .hero{
+        grid-template-columns: 1fr;
+        grid-template-rows: 50rem 1fr;
+        row-gap: 1.8rem;
+        max-width: 60rem;
+    }
+
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 50rem 1fr;
+        row-gap: 1.8rem;
+        max-width: 60rem !important;
+    }
+
+    .header a img{
+        height: 3rem;
+        width: 100%;
     }
 }
 
@@ -211,7 +235,7 @@
     }
 
     .manga-grid-image img {
-        height: 30rem;
+        height: 30rem !important;
     }
 
     .grid-footer{
@@ -230,10 +254,11 @@
     /* Shared Manga Grid */
     .manga-grid{
         grid-template-columns: repeat(3, 1fr) !important;
+        column-gap: 1.8rem !important; 
     }
 
     .manga-grid-img-box img{
-        height: 30rem;
+        height: 30rem !important;
     }
 
     /* Manga Chapter */
@@ -241,6 +266,5 @@
     .chapter-container h2{
         font-size: 3.0rem;
     }
-
 
 }
