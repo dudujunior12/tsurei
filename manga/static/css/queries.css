@@ -146,6 +146,13 @@
         grid-row: 1;
     }
 
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 60rem 1fr;
+        row-gap: 1.8rem;
+        max-width: 60rem !important;
+    }
+
     /* Shared Manga Grid */
     .manga-grid-img-box img{
         height: 25rem;
@@ -169,7 +176,7 @@
 
     /* Shared Manga Grid */
     .manga-grid{
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr) !important;
     }
 
     .manga-grid-img-box img{
@@ -192,7 +199,7 @@
     }
 
     .grid-footer{
-        grid-template-columns: repeat(2, 1fr);;
+        grid-template-columns: repeat(2, 1fr) !important;
         row-gap: 4.8rem;
     }
 
@@ -204,10 +211,9 @@
         grid-row: 1;
     }
 
-
     /* Shared Manga Grid */
     .manga-grid{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr) !important;
     }
 
     .manga-grid-img-box img{
