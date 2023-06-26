@@ -22,8 +22,11 @@
 <section class="section-manga-chapter">
     <div class="manga-chapter-items">
         <h2>Chapters</h2>
+        {% if request.user.is_superuser %}
         <button id="btn-new-chapter">New Chapter</button>
+        {% endif %}
     </div>
+    {%if request.user.is_superuser%}
     <div class="new-chapter">
         <!-- The Modal -->
         <div id="new-chapter-modal" class="modal">
@@ -50,6 +53,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <div class="chapter-list">
         {% for chapter in manga_chapters %}
         <div class="chapter">

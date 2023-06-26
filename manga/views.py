@@ -33,7 +33,7 @@ def manga_chapter(request, manga_id, chapter_id):
                 previous_chapter = chapter.chapter_number
             else:
                 previous_chapter = previous_chapter_number
-                
+
         if current_chapter.chapter_number >= 1:
             next_chapter_number = current_chapter.chapter_number + 1
             if chapter.chapter_number == next_chapter_number:
@@ -65,9 +65,10 @@ def categories(request, category):
     if(category == "All"):
         categories_mangas = Manga.objects.all()
     else:
-        category = Category.objects.get(category_name=category).id
-        categories_mangas = Manga.objects.filter(category=category)
-    return render(request, 'manga/categories.html', {"categories_mangas": categories_mangas, "categories": categories})
+        category_name = Category.objects.get(category_name=category).category_name
+        category_id = Category.objects.get(category_name=category).id
+        categories_mangas = Manga.objects.filter(category=category_id)
+    return render(request, 'manga/categories.html', {"categories_mangas": categories_mangas, "categories": categories, "category_name": category})
 
 @login_required
 def profile(request, username):

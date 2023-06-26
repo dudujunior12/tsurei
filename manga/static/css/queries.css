@@ -201,6 +201,10 @@
     }
 
     /* Shared Manga Grid */
+    .manga-grid{
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
     .manga-grid-img-box img{
         height: 25rem !important;
     }
@@ -228,7 +232,7 @@
 
     /* Shared Manga Grid */
     .manga-grid{
-        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-columns: repeat(3, 1fr) !important;
     }
 
     .manga-grid-img-box img{
@@ -294,12 +298,12 @@
 
     /* Shared Manga Grid */
     .manga-grid{
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         column-gap: 1.8rem !important; 
     }
 
     .manga-grid-img-box img{
-        height: 25rem !important;
+        height: 35rem !important;
     }
 
     /* Manga Chapter */

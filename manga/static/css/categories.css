@@ -58,5 +58,16 @@
     max-width: 180rem;
     margin: 0 auto;
     padding: 3.2rem 4.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
 }
 
+.categories p {
+    font-size: 2.2rem;
+}
+
+.categories span{
+    font-size: 2.2rem;
+    color: red;
+}
