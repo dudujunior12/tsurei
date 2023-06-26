@@ -33,7 +33,8 @@ def manga_chapter(request, manga_id, chapter_id):
                 previous_chapter = chapter.chapter_number
             else:
                 previous_chapter = previous_chapter_number
-        if current_chapter.chapter_number == 1:
+                
+        if current_chapter.chapter_number >= 1:
             next_chapter_number = current_chapter.chapter_number + 1
             if chapter.chapter_number == next_chapter_number:
                 next_chapter = chapter.chapter_number

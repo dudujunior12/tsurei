@@ -115,3 +115,11 @@
 .nav-bottom{
     margin-bottom: 6.4rem;
 }
+
+
+.disabled-link:link,
+.disabled-link:visited{
+    pointer-events: none;
+    background-color: #222 !important;
+    color: #888;
+}
