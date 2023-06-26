@@ -42,7 +42,7 @@ It provides functions to navigate through the mangas and chapters, and also fits
 			- `latest.html` - Show all latest release mangas.
 			- `layout.html` - Template html layout.
 			- `login.html` - Template login page.
-			- `manga_chapter.html` - Shows the manga chapter.
+			- `manga_chapter.html` - Displays the manga chapter and a navigation.
 			- `profile.html` - Shows the user profile page
 			- `register.html` - Template register page.
 			- `search.html` - Shows the result of the search function.
