@@ -2,6 +2,10 @@
     margin-top: 9.6rem;
     width: 100%;
     background-color: #d3b2f3;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 .chapter-container {
@@ -21,13 +25,93 @@
     color: #343a40;
 }
 
+.manga-title{
+    margin: 0 auto;
+}
+
+.nav-chapter{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1.8rem;
+}
+
+.select-container{
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    min-width: 15rem;
+    position: relative;
+}
+
+.select-box{
+    background-color: #6f6f6f;
+    border: none;
+    border-radius: 0.3rem;
+    appearance: none;
+    padding: 0 2.5rem 0 1.5rem;
+    width: 100%;
+    font-size: 1.6rem;
+    height: 100%;
+    color: white;
+}
+
+.icon-container{
+    width: 4rem;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    background-color: #6f6f6f;
+    color: white;
+    border-radius: 0.3rem;
+}
+
+.btn-nav-chapter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-nav-chapter a:link,
+.btn-nav-chapter a:visited{
+    text-decoration: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.6rem;
+    height: 3rem;
+    border-radius: 0.3rem;
+    background-color: #f4ecfc;
+    color: #343a40;
+    cursor: pointer;
+    font-size: 1.2rem;
+
+}
+
+.btn-nav-next:last-child{
+    margin-left: 1rem;
+}
+
+.btn-nav-chapter i{
+    margin-left: 0.5rem;
+}
+
 .chapter {
-    width: 50%;
-    margin-bottom: 6.4rem;
+    width: 100%;
+    margin-bottom: 1.8rem;
 }
 
 .chapter img {
     height: 100%;
     width: 100%;
     max-width: 100%;
+}
+
+.nav-bottom{
+    margin-bottom: 6.4rem;
 }

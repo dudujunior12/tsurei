@@ -22,8 +22,25 @@ def index(request):
 
 def manga_chapter(request, manga_id, chapter_id):
     manga = get_object_or_404(Manga, id=manga_id)
-    chapter = Chapter.objects.get(manga=manga, id=chapter_id)
-    return render(request, "manga/manga_chapter.html", {"chapter": chapter, "manga": manga})
+    current_chapter = Chapter.objects.get(manga=manga, id=chapter_id)
+    chapters = Chapter.objects.filter(manga=manga)
+    previous_chapter = 0
+    next_chapter = 0
+    for chapter in chapters:
+        if current_chapter.chapter_number != 0 and current_chapter.chapter_number != 1:
+            previous_chapter_number = current_chapter.chapter_number - 1
+            if chapter.chapter_number == previous_chapter_number:
+                previous_chapter = chapter.chapter_number
+            else:
+                previous_chapter = previous_chapter_number
+        if current_chapter.chapter_number == 1:
+            next_chapter_number = current_chapter.chapter_number + 1
+            if chapter.chapter_number == next_chapter_number:
+                next_chapter = chapter.chapter_number
+            else:
+                next_chapter = next_chapter_number
+    
+    return render(request, "manga/manga_chapter.html", {"current_chapter": current_chapter, "previous_chapter": previous_chapter, "next_chapter": next_chapter, "chapters": chapters, "manga": manga})
 
 def new_chapter(request, manga_id):
     if request.method == "POST":
