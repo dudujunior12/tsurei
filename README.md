@@ -6,7 +6,6 @@ This project uses almost all the concepts that were explained through the course
 The project uses Django as the backend with 5 models, and JavaScript on the front-end, also it's used SwiperJS for displaying the mangas on slides. 
 The basic idea is enter the website, find a desired manga to read(search for a keyword, filter all mangas, see the most readed or the latest manga releases), select a manga, read the manga information and read the chapters, also the user can bookmark the mangas if desired.
 It provides functions to navigate through the mangas and chapters, and also fits the images/content in all devices as it's mobile-responsive.
-And the project it's not similar at all with a social media network or an e-commerce website.
 
 
 # Directories
