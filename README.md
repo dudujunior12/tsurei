@@ -13,7 +13,7 @@ It provides functions to navigate through the mangas and chapters, and also fits
 	- `manga/` - Main application directory.
 		- `static/` - CSS, Images, Fonts and JS files.
 			- `css` - All CSS files used in the project.
-		                - `categories.css` 
+		                - `categories.css` - Style for the categories html
 		                - `index.css` - Style for the index html
 		                - `latest.css` - Style for the latest html
 		                - `layout.css` - Style for the layout which is the base html file
