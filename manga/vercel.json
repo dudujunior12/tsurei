@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "tsurei/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "tsurei/wsgi.py"
+      }
+    ]
+  }
