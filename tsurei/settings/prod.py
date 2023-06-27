@@ -7,7 +7,7 @@ import dj_database_url
 
 # Application definition
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
