@@ -12,6 +12,7 @@ migrations
 
 # Manga covers and chapters
 tsurei/manga/static/images/mangas/*
+tsurei/static
 
 # If you are using PyCharm # 
 # User-specific stuff
