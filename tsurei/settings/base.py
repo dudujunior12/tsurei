@@ -37,8 +37,8 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    #"django.middleware.security.SecurityMiddleware",
+    #"whitenoise.middleware.WhiteNoiseMiddleware",
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -116,7 +116,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/images/'
 
 #Absolute filesystem path to the directory that will hold all user uploaded-files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'manga/static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/manga')
 
 LOGIN_URL = '/login/'
 
