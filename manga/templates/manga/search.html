@@ -7,8 +7,8 @@
 
 {% block main %}
 <setion class="search-section">
+    <h2 class="section-title">Result for "{{ search_text }}"</h2>
     <div class="search-container">
-        <h2>Result for "{{ search_text }}"</h2>
         <div class="manga-grid grid">
             {% if result %}
                 {% for manga in result %}
