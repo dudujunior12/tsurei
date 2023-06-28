@@ -1,4 +1,4 @@
-from .base import *
+from .settings import base 
 
 import dj_database_url
 #import cloudinary
