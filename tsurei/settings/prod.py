@@ -1,9 +1,9 @@
 from .base import *
 
 import dj_database_url
-#import cloudinary
-#import cloudinary.uploader
-#import cloudinary.api
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Application definition
 
@@ -28,12 +28,12 @@ DATABASES = {
 
 DATABASES['default'] = dj_database_url.config(default=env("POSTGRES_URL"))
 
-#CLOUDINARY_STORAGE = {
-#    'CLOUD_NAME': env('CLOUD_NAME'),
-#    'API_KEY': env("API_KEY"),
-#    'API_SECRET': env('API_SECRET'),
-#}
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUD_NAME'),
+    'API_KEY': env("API_KEY"),
+    'API_SECRET': env('API_SECRET'),
+}
 
-#DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
+DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
