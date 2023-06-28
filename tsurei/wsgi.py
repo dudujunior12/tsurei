@@ -8,10 +8,14 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 
 import os
+from tsurei.settings import base
+
+if base.DEBUG == "TRUE":
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tsurei.settings.dev')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tsurei.settings.prod')
 
 from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tsurei.settings.prod')
 
 application = get_wsgi_application()
 
