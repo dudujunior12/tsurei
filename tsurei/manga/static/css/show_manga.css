@@ -1,0 +1,165 @@
+/* *********************** */
+/* MANGA VIEW SECTION */
+/* *********************** */
+
+.section-manga-view {
+    margin-top: 9.6rem;
+    background-color: #d3b2f3;
+}
+
+.container {
+    max-width: 130rem;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    gap: 3.6rem;
+    padding: 4.8rem 3.2rem;
+    margin: 0 auto;
+}
+
+.main-view-img {
+    width: 100%;
+    height: 100%;
+}
+
+.manga-view-img img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    border-radius: 3px;
+    display: block;
+}
+
+.manga-view-info {
+    background-color: #b279eb;
+    padding: 2.4rem 1.6rem 9.6rem 1.6rem;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.btn-bookmark {
+    padding: 1.2rem 2.4rem;
+    border: none;
+    background-color: #69db7c;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 1.8rem;
+    color: white;
+    width: 30%;
+}
+
+/* *********************** */
+/* MANGA CHAPTER SECTION */
+/* *********************** */
+.section-manga-chapter {
+    margin-top: 9.6rem;
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: column;
+    margin-left: 9.6rem;
+    margin-right: 9.6rem;
+}
+
+.manga-chapter-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.manga-chapter-items h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+#btn-new-chapter {
+    background-color: #69db7c;
+    border: none;
+    padding: 1.2rem 1.6rem;
+    color: white;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+
+.chapter {
+    border: 1px solid black;
+    padding: 1.2rem;
+    margin-top: 1.8rem;
+}
+
+.chapter-number {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #343a40;
+}
+
+.chapter-date {
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #343a40;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.new-chapter-modal-container {
+    background-color: #868e96;
+    margin: 15% auto;
+    color: #343a40;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.new-chapter-content {
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+}
+
+.new-chapter-content h2 {
+    font-size: 2.4rem;
+}
+
+.new-chapter-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.new-chapter-content form button {
+    padding: 1.2rem 1.2rem;
+    width: 16rem;
+    border: none;
+    background-color: #69db7c;
+    cursor: pointer;
+    color: white;
+    margin-top: 1.2rem;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

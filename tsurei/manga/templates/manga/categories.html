@@ -1,0 +1,43 @@
+{% extends 'manga/layout.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/categories.css'%}">
+{% endblock %}
+
+{% block main %}
+<section class="section-filter">
+    <div class="filter-container">
+        <p>Filter</p>
+        <div class="genre-grid">
+            <div class="genre-grid-item">
+                <span><a href="{% url 'categories' category='All'%}">All</a></span>
+            </div>
+            {% for category in categories %}
+            <div class="genre-grid-item">
+                <span><a href="{% url 'categories' category.category_name %}" >{{category.category_name}}</a> </span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="section-categories">
+    <h2 class="section-title">Mangas</h2>
+    <div class="categories">
+        <p>Showing results for <span>{{ category_name }}</span></p>
+        <div class="manga-grid grid">
+            {% for categories_manga in categories_mangas %}
+            <div class="manga-grid-item">
+                <div class="manga-grid-img-box">
+                    <img src="{{ categories_manga.cover.url }}">
+                </div>
+                <div class="manga-grid-info">
+                    <h3><a href="{% url 'show-manga' categories_manga.id %}">{{ categories_manga.title }}</a></h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}

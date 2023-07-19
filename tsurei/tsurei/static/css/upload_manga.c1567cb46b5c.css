@@ -1,0 +1,72 @@
+.main-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.upload-container{
+    background-color: #047AED;
+    margin-top: 2%;
+    width: 55%;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+
+.upload-container h1{
+    margin-bottom: 6%;
+    margin-left: 3%;
+}
+
+.upload{
+    height: auto;
+    margin: 5%;
+}
+
+.upload form{
+    margin: 0 4%;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+}
+
+.field label{
+    font-size: 19px;
+    margin-bottom: 2%;
+}
+
+.field input{
+    font-size: 16px;
+    margin-bottom: 4%;
+    padding: 10px 10px;
+    outline: none;
+    background-color: #E3E3E3;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: black;
+}
+
+.field textarea{
+    font-size: 16px;
+    margin-bottom: 4%;
+    padding: 10px 10px;
+    outline: none;
+    background-color: #E3E3E3;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: black;
+}
+
+
+.upload-container button{
+    margin-top: 1%;
+    outline: none;
+    font-size: 18px;
+    border: none;
+    background-color: #913FE2;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}

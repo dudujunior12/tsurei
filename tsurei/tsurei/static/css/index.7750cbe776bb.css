@@ -1,0 +1,156 @@
+/* *********************** */
+/* HERO SECTION */
+/* *********************** */
+
+.section-hero {
+    margin-top: 9.6rem;
+    background-color: #d3b2f3;
+}
+
+.hero {
+    padding: 4.8rem 3.2rem;
+    grid-template-columns: 1fr 0.5fr;
+    column-gap: 9.6rem; 
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.manga-presentation-slide {
+    background-color: #b279eb;
+    padding: 2.4rem 1.6rem 9.6rem 1.6rem;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    border-radius: 3px;
+}
+
+.summary {
+    margin-top: 2.4rem;
+}
+
+.manga-summary {
+    margin-top: 1.8rem;
+}
+
+.manga-presentation-slide a {
+    font-size: 3.2rem;
+    text-decoration: none;
+    color: #343a40;
+    font-weight: 600;
+}
+
+.manga-image-slide-cover {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    min-width: 0;
+}
+
+.manga-image-slide-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* *********************** */
+/* MOST VIEWED SECTION */
+/* *********************** */
+.section-most-viewed {
+    margin-top: 9.6rem;
+}
+
+.section-most-viewed h2 {
+    font-size: 2.4rem;
+    margin-left: 9.6rem;
+}
+
+.most-viewed{
+    max-width: 160rem;
+    margin: 0 auto;
+    margin-top: 3.6rem;
+}
+
+.manga-grid-info {
+    padding: 1.2rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.manga-grid-info a{
+    text-decoration: none;
+    color: #343a40;
+}
+
+.manga-grid-image img {
+    width: 100%;
+    height: 35rem;
+    border-radius: 3px;
+    display: block;
+}
+
+.manga-grid-item h3{
+    padding: 1.2rem 0;
+    font-size: 1.8rem;
+}
+
+/* *********************** */
+/* LATEST SECTION */
+/* *********************** */
+.section-latest {
+    margin-top: 6.4rem;
+}
+
+.section-latest h2 {
+    font-size: 2.4rem;
+    margin-left: 9.6rem;
+}
+
+.latest{
+    max-width: 180rem;
+    margin: 0 auto;
+    margin-top: 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    /* padding: 0 9.6rem; */
+    padding: 0 3.2rem;
+    column-gap: 21rem;
+    row-gap: 3.6rem;
+}
+
+.latest-grid-item {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.latest-grid-img-box{
+    width: 100%;
+}
+
+.latest-grid-item img {
+    height: 45rem;
+    width: 100%;
+    border-radius: 3px;
+    display: block;
+}
+
+.latest-grid-info{
+    width: 70%;
+}
+
+.latest-grid-info h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.latest-grid-info a {
+    text-decoration: none;
+    color: #343a40;
+}
+
+.latest-grid-info p {
+    margin-top: 0.6rem;
+    font-size: 1.6rem;
+}

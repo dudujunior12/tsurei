@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tsurei</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://kit.fontawesome.com/aff34599fe.js"
+            crossorigin="anonymous"
+        ></script>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+        />
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        {% block head %} {% endblock%}
+    </head>
+    <body>
+        <header class="header">
+            <a href="{% url 'index' %}"><img
+                src="{% static 'images/logo.png' %}"
+                alt="Website Logo Tsurei"
+            /></a>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li>
+                        <a class="main-nav-link" href="{% url 'index' %}"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'latest' %}"
+                            >Latest</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="{% url 'categories' category='All' %}"
+                            >Categories</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            <div class="secondary-nav">
+                <div class="search">
+                    <form method="GET" action="{% url 'search' %}" class="search-box">
+                        <button type="button" class="btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                {% if request.user.is_authenticated %}
+                <a
+                    class="secondary-nav-link"
+                    href="{% url 'profile' request.user.username %}"
+                    ><i class="fas fa-user"></i
+                ></a>
+                <a class="secondary-nav-link" href="{% url 'logout' %}"
+                    ><i class="fas fa-sign-out-alt"></i>
+                </a>
+                {% else %}
+                <a class="secondary-nav-link" href="{% url 'login'%}"
+                    ><i class="fas fa-user"></i
+                ></a>
+                {% endif %}
+                
+                <button class="btn-mobile-nav">
+                    <i class="icon-mobile-nav fas fa-bars" name="menu-icon" style="color: #000000;"></i>
+                    <i class="icon-mobile-nav fas fa-times" name="close-icon" style="color: #000000;"></i>
+                </button>
+            </div>
+        </header>
+        <div class="main">{% block main %} {% endblock %}</div>
+        <footer class="footer-section">
+            <div class="footer grid grid-footer">
+                <div class="website-td">
+                    <img
+                        src="{% static 'images/logo.png' %}"
+                        alt="Website Logo Tsurei"
+                    />
+                    <div class="social">
+                        <a class="social-link" href="https://github.com/dudujunior12/cs50w-project5-capstone" target="_blank"
+                            ><i class="fab fa-github fa-2x"></i
+                        ></a>
+                        <a class="social-link" href="#"
+                            ><i class="fab fa-facebook fa-2x"></i
+                        ></a>
+                        <a class="social-link" href="#"
+                            ><i class="fab fa-instagram fa-2x"></i
+                        ></a>
+                        <a class="social-link" href="#"
+                            ><i class="fab fa-twitter fa-2x"></i
+                        ></a>
+                    </div>
+                    <p>Copyright &copy; <span class="year">2023</span></p>
+                </div>
+                <nav class="footer-nav">
+                    <h2>Navigation</h2>
+                    <ul class="footer-nav-list">
+                        <li>
+                            <a class="footer-nav-link" href="{% url 'index' %}"
+                                >Home</a
+                            >
+                        </li>
+                        <li>
+                            <a class="footer-nav-link" href="{% url 'latest' %}"
+                                >Latest</a
+                            >
+                        </li>
+                        <li>
+                            <a class="footer-nav-link" href="{% url 'categories' category='All' %}"
+                                >Categories</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <div class="contact">
+                    <h2>Contact</h2>
+                    <a href="mailto:tsurei@outlook.com">Email</a>
+                    <address>
+                        <p>Street lorem, 374</p>
+                        <p>US - L.A</p>
+                        <p>00000000000</p>
+                    </address> 
+                </div>
+            </div>
+        </footer>
+        <script src="{% static 'js/search.js'%}"></script>
+        <script src="{% static 'js/mobile-nav.js'%}"></script>
+        <script src="{% static 'js/sticky.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/queries.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/util.css' %}" />
+    </body>
+</html>

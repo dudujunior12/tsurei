@@ -1,0 +1,7 @@
+venv/
+.gitignore
+__pycache__/
+Dockerfile
+vercel.json
+.git/
+migrate/
