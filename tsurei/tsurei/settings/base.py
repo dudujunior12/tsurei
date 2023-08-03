@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
 ROOT_URLCONF = 'tsurei.urls'
 
 TEMPLATES = [
@@ -70,6 +72,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'tsurei.wsgi.application'
 
 AUTH_USER_MODEL = 'manga.User'
+
+DATABASES = {
+    'default': {
+        'ENGINE': env('POSTGRES_ENGINE'),
+        'NAME': env('POSTGRES_DB'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT'),
+    }
+}
 
 
 # Password validation

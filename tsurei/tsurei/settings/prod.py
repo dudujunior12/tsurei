@@ -20,17 +20,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-DATABASES = {
-    'default': {
-        'ENGINE': env('POSTGRES_ENGINE'),
-        'NAME': env('POSTGRES_DB'),
-        'USER': env('POSTGRES_USER'),
-        'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': env('POSTGRES_HOST'),
-        'PORT': env('POSTGRES_PORT'),
-    }
-}
-
 #Connect to a online database
 #DATABASES['default'] = dj_database_url.config(default=env("POSTGRES_URL"))
 

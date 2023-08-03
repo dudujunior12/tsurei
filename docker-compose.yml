@@ -9,7 +9,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./tsurei:/tsurei
+      - ./tsurei:/tsurei:Z
       - ./tsurei/tsurei/static/:/tsurei/tsurei/static/
       - ./tsurei/tsurei/static/manga:/tsurei/tsurei/static/manga
     env_file:
