@@ -19,14 +19,10 @@ ENV PATH="/scripts:/venv/bin:$PATH"
 
 RUN pip install --upgrade pip && \
  pip install -r requirements.txt && \
- adduser --disabled-password --no-create-home tsurei && \
  mkdir -p /tsurei/tsurei/static && \
  mkdir -p /tsurei/tsurei/static/manga && \
- chown -R tsurei:tsurei /tsurei/tsurei/static && \
- chown -R tsurei:tsurei /tsurei/tsurei/static/manga && \
  chmod -R 755 /tsurei/tsurei/static/manga && \
  chmod -R 755 /tsurei/tsurei/static && \
- chown -R tsurei:tsurei /scripts/ && \
  chmod -R +x /scripts/
 
 USER tsurei

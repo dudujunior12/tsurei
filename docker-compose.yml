@@ -19,6 +19,7 @@ services:
   psql:
     container_name: psql
     image: postgres:13-alpine
-    user: "root"
+    volumes:
+      - ./data:/var/lib/postgresql/data:z
     env_file:
       - ./tsurei/tsurei/.env
