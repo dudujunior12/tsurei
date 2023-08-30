@@ -3,6 +3,11 @@ Tsurei is a online library of manga/manhwa, where the administrators can upload 
 
 # How to Run the Project
 
+## Requirements
+- python3
+- pip
+
+## Create Virtual Environment
     python -m venv venv
 
 ## Download dependencies
