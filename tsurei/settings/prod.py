@@ -4,9 +4,10 @@ import dj_database_url
 
 # Application definition
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "manga",
     "django.contrib.admin",
     "django.contrib.auth",
