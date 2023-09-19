@@ -1,13 +1,10 @@
 from .base import *
 
-# import dj_database_url
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
+import dj_database_url
 
 # Application definition
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
@@ -20,17 +17,12 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
-# Connect to a online database
-# DATABASES['default'] = dj_database_url.config(default=env("POSTGRES_URL"))
-
-"""
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUD_NAME'),
-    'API_KEY': env("API_KEY"),
-    'API_SECRET': env('API_SECRET'),
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+    }
 }
-"""
 
-# DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
+DATABASES["default"] = dj_database_url.config(default=env("POSTGRES_URL"))
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
