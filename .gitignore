@@ -14,6 +14,8 @@ migrations
 tsurei/manga/static/images/mangas/*
 tsurei/static
 tsurei/tsurei/static
+static/
+tsurei/tsurei/tsurei/static
 
 data/
 
