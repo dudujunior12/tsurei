@@ -1,7 +1,7 @@
 psycopg2-binary==2.9.6 
 Django
-Pillow
 django-environ
+pillow>=10.0.1
 python-dotenv
 asgiref==3.5.2
 sqlparse==0.4.4
