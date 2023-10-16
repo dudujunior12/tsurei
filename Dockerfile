@@ -25,6 +25,6 @@ RUN pip install --upgrade pip && \
  chmod -R 755 /tsurei/tsurei/static && \
  chmod -R +x /scripts/
 
-USER tsurei
+# USER tsurei
 
 CMD ["/bin/sh", "/scripts/commands.sh"]
