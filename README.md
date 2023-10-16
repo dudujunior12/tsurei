@@ -6,17 +6,11 @@ Tsurei is a online library of manga/manhwa, where the administrators can upload 
 ## Requirements
 - python3
 - pip
-- virtualenv (optional)
+- docker
+- docker-compose
 
-## Create Virtual Environment (optional)
-    python -m venv venv
-
-## Download dependencies
-
-    pip install -r requirements.txt
-
-Set .env file
-
+## Set .env file
+    cd tsurei/tsurei
     touch .env
 
 ### With your favorite editor edit the file and include the line below
@@ -26,11 +20,6 @@ Set .env file
 
 ex: https://djecrety.ir/
 
-## Migrate django models
-
-    python manage.py makemigrations manga
-    python manage.py migrate
-
-## Run server
-
-    python manage.py runserver
+## Run Docker
+    cd ../../
+    docker-compose up
