@@ -51,8 +51,16 @@
                     </div>
                 </div>
                 <div class="btn-nav-chapter">
+                    {% if previous_chapter <= 0 %}
+                    <a href="{% url 'manga-chapter' manga.id previous_chapter %}" class="btn-nav-next disabled-link">Prev<i class="fas fa-chevron-left"></i></a>
+                    <a href="{% url 'manga-chapter' manga.id next_chapter %}"class="btn-nav-next">Next<i class="fas fa-chevron-right"></i></a>
+                    {% elif next_chapter > chapters.count %}
+                    <a href="{% url 'manga-chapter' manga.id previous_chapter %}" class="btn-nav-next">Prev<i class="fas fa-chevron-left"></i></a>
+                    <a href="{% url 'manga-chapter' manga.id next_chapter %}"class="btn-nav-next disabled-link">Next<i class="fas fa-chevron-right"></i></a>
+                    {% else %}
                     <a href="{% url 'manga-chapter' manga.id previous_chapter %}" class="btn-nav-next">Prev<i class="fas fa-chevron-left"></i></a>
                     <a href="{% url 'manga-chapter' manga.id next_chapter %}"class="btn-nav-next">Next<i class="fas fa-chevron-right"></i></a>
+                    {% endif %}
                 </div>
             </nav>
         </div>
