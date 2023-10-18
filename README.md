@@ -18,6 +18,12 @@ Tsurei is a online library of manga/manhwa, where the administrators can upload 
     SECRET_KEY=*GENERATE A SECRET KEY*
     DEBUG=TRUE
 
+    # Create Super User (optional)
+    DJANGO_SUPERUSER_USERNAME="yourusername"
+    DJANGO_SUPERUSER_PASSWORD="yourpassword"
+    DJANGO_SUPERUSER_EMAIL="youremail"
+    
+
 ex: https://djecrety.ir/
 
 ## Run Docker
