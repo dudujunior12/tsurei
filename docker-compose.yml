@@ -11,15 +11,15 @@ services:
     volumes:
       - ./tsurei:/tsurei:Z
       - ./tsurei/tsurei/static/:/tsurei/tsurei/static/
-      - ./tsurei/tsurei/static/manga:/tsurei/tsurei/static/manga
+      - ./tsurei/tsurei/uploads/:/tsurei/tsurei/uploads/
     env_file:
       - ./tsurei/tsurei/.env
-    # depends_on:
-    #   - psql
-  # psql:
-  #   container_name: psql
-  #   image: postgres:13-alpine
-  #   volumes:
-  #     - ./data:/var/lib/postgresql/data:z
-  #   env_file:
-  #     - ./tsurei/tsurei/.env
+    depends_on:
+      - psql
+  psql:
+    container_name: psql
+    image: postgres:13-alpine
+    volumes:
+      - ./data:/var/lib/postgresql/data:z
+    env_file:
+      - ./tsurei/tsurei/.env

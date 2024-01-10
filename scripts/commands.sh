@@ -1,12 +1,10 @@
 #!/bin/sh
 set -e
 
-<<com
 while ! nc -z $POSTGRES_HOST $POSTGRES_PORT; do
     echo "Waiting for Postgres Database Setup ($POSTGRES_HOST $POSTGRES_PORT)..."
     sleep 0.1
 done
-com
 
 echo "Running the project"
 

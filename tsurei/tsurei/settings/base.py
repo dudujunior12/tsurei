@@ -115,6 +115,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = "/images/"
 
 # Absolute filesystem path to the directory that will hold all user uploaded-files
-MEDIA_ROOT = os.path.join(BASE_DIR, "static/manga")
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 LOGIN_URL = "/login/"
