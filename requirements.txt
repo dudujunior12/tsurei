@@ -10,3 +10,4 @@ dj-database-url==1.0.0
 python-decouple==3.6
 django_cloudinary_storage
 whitenoise
+gunicorn

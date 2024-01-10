@@ -6,12 +6,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 ENV PYTHONBUFFERED 1
 
+EXPOSE 8000
+
 COPY /tsurei ./tsurei
 COPY /scripts/ ./scripts
 
 WORKDIR /tsurei
-
-EXPOSE 8000
 
 RUN python -m venv /venv
 

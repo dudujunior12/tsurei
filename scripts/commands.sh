@@ -22,4 +22,4 @@ echo "Collect Static"
 python3 manage.py collectstatic --noinput --clear
 
 echo "Running Server"
-python3 manage.py runserver 0.0.0.0:8000
+gunicorn wsgi.py
