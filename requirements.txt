@@ -2,6 +2,7 @@ psycopg2-binary==2.9.6
 django>=4.1.10
 django-environ
 pillow>=10.0.1
+gunicorn==21.2.0 
 python-dotenv
 asgiref==3.5.2
 sqlparse==0.4.4
@@ -10,4 +11,3 @@ dj-database-url==1.0.0
 python-decouple==3.6
 django_cloudinary_storage
 whitenoise
-gunicorn

@@ -8,6 +8,7 @@ ENV PYTHONBUFFERED 1
 
 EXPOSE 8000
 
+COPY requirements.txt requirements.txt
 COPY /tsurei ./tsurei
 COPY /scripts/ ./scripts
 
@@ -19,6 +20,7 @@ ENV PATH="/scripts:/venv/bin:$PATH"
 
 RUN pip install --upgrade pip && \
  pip install -r requirements.txt && \
+ pip install gunicorn && \
  mkdir -p /tsurei/tsurei/static && \
  mkdir -p /tsurei/tsurei/static/manga && \
  chmod -R 755 /tsurei/tsurei/static/manga && \

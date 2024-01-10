@@ -22,4 +22,5 @@ echo "Collect Static"
 python3 manage.py collectstatic --noinput --clear
 
 echo "Running Server"
-gunicorn wsgi.py
+pwd
+gunicorn --bind 0.0.0.0:8000 tsurei.wsgi
