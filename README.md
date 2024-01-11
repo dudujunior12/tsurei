@@ -25,7 +25,7 @@ Tsurei is a online library of manga/manhwa, where the administrators can upload 
     DJANGO_SUPERUSER_PASSWORD="yourpassword"
     DJANGO_SUPERUSER_EMAIL="youremail"
 
-    # For production
+    # For production(only if debug is false)
     POSTGRES_URL="postgres://postgres:postgres@psql:5432/postgres"
     POSTGRES_PASSWORD="postgres"
     POSTGRES_HOST="psql"
