@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded',function() {
 },false);
 
 function changeEventHandler(event) {
-    value = this.options[this.selectedIndex].value;
-    value = value.match(/\d+/g);
-    window.location.href = value[0];
+    let value = this.options[this.selectedIndex].value;
+    let match = value.match(/^\d+$/);
+    if (match) {
+        window.location.href = encodeURIComponent(match[0]);
+    } else {
+        console.error('Invalid value selected');
+    }
 }
