@@ -10,14 +10,11 @@ migrations
 # Backup files # 
 *.bak 
 
-# Manga covers and chapters
-tsurei/manga/static/images/mangas/*
-tsurei/static
-tsurei/tsurei/static
-static/
-tsurei/tsurei/tsurei/static
+staticfiles/
+postgres_data/
+certs/
+tsurei/staticfiles/
 
-data/
 
 # If you are using PyCharm # 
 # User-specific stuff

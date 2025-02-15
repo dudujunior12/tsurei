@@ -1,28 +1,18 @@
 from .base import *
 
-import dj_database_url
+import os
 
-# Application definition
+from .base import *
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+domain = os.getenv("DOMAIN")
 
-INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
-    "manga",
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+STATIC_ROOT = BASE_DIR / "../staticfiles"
+ALLOWED_HOSTS = [
+    domain,
+    f"www.{domain}",
+    "localhost",
+    "backend",
+    "127.0.0.1",
+    "0.0.0.0",
 ]
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-    }
-}
-
-DATABASES["default"] = dj_database_url.config(default=env("POSTGRES_URL"))
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

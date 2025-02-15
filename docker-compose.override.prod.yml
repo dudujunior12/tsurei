@@ -1,0 +1,57 @@
+version: '3.9'
+
+services:
+  psql:
+      container_name: psql
+      image: postgres:latest
+      env_file:
+        - ./.env 
+      networks:
+        - internal_network
+      volumes:
+        - ./data:/var/lib/postgresql/data
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
+
+  tsurei:
+    ports:
+      - 8000:8000
+    volumes:
+      - static:/tsurei/staticfiles
+      - upload:/tsurei/upload
+    command: /bin/sh /tsurei/scripts/prod.sh
+    environment:
+      - DEBUG=False
+      - POSTGRES_HOST=db
+    
+    depends_on:
+      psql:
+        condition: service_healthy
+
+  
+  nginx:
+    container_name: nginx
+    build:
+      context: ./
+      dockerfile: ./nginx/Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - internal_network
+    volumes:
+      - ./nginx/default.conf.template:/etc/nginx/templates/default.conf.template
+      - static:/static
+    env_file:
+      - ./.env  
+    depends_on:
+      tsurei:
+        condition: service_started
+  
+  volumes:
+    upload:
+    static:
+  

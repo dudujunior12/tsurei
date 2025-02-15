@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  tsurei:
+      volumes:
+        - ./tsurei:/tsurei
+      ports:
+        - 8000:8000
+      command: /bin/sh /tsurei/scripts/dev.sh
+      environment:
+        - DEBUG=TRUE
